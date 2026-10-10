@@ -1,0 +1,416 @@
+INFO  Using log config file: jar:file:/C:/Users/user/Desktop/CODING%20STUFF/ProjectorRoot/tools/ghidra_install/ghidra_12.1.3_PUBLIC/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml (LoggingInitialization)  
+INFO  Using log file: C:\Users\user\AppData\Roaming\ghidra\ghidra_12.1.3_PUBLIC\application.log (LoggingInitialization)  
+INFO  Loading user preferences: C:\Users\user\AppData\Roaming\ghidra\ghidra_12.1.3_PUBLIC\preferences (Preferences)  
+INFO  Searching for classes... (ClassSearcher)  
+INFO  Class search complete (1642 ms) (ClassSearcher)  
+INFO  Initializing SSL Context (DefaultSSLContextInitializer)  
+INFO  Initializing Random Number Generator... (SecureRandomFactory)  
+INFO  Random Number Generator initialization complete: SHA1PRNG (SecureRandomFactory)  
+INFO  Trust manager disabled, cacerts have not been set (DefaultTrustManagerFactory)  
+INFO  Headless startup complete (5290 ms) (AnalyzeHeadless)  
+INFO  Class searcher loaded 59 extension points (20 false positives) (ClassSearcher)  
+INFO  HEADLESS Script Paths:
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Features\BSim\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Debug\Debugger\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Features\VersionTracking\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Processors\8051\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Features\FunctionID\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Processors\PIC\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Processors\DATA\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Features\Base\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Features\SystemEmulation\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Features\FileFormats\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Debug\Debugger-rmi-trace\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Features\PyGhidra\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Features\SwiftDemangler\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Features\WildcardAssembler\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Processors\Atmel\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Features\MicrosoftCodeAnalyzer\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Features\BytePatterns\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Features\PDB\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Features\DecompilerDependent\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Features\Decompiler\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Features\GnuDemangler\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Processors\JVM\ghidra_scripts (HeadlessAnalyzer)  
+INFO  HEADLESS: execution starts (HeadlessAnalyzer)  
+INFO  Opening existing project: C:\Users\user\Desktop\CODING~1\PROJEC~1\tools\ghidra_project\ubootproj (HeadlessAnalyzer)  
+INFO  Opening project: C:\Users\user\Desktop\CODING~1\PROJEC~1\tools\ghidra_project\ubootproj (HeadlessProject)  
+INFO  REPORT: Processing project file: /uboot.bin (HeadlessAnalyzer)  
+INFO  REPORT: Execute script: TraceUboot2.java  (HeadlessAnalyzer)  
+INFO  SCRIPT: C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_scripts\TraceUboot2.java (HeadlessAnalyzer)  
+INFO  TraceUboot2.java> 
+================ 0023d9fc ================ (GhidraScript)  
+INFO  TraceUboot2.java> --- FUN_0023d9fc @ 0023d9fc size=184 --- (GhidraScript)  
+INFO  TraceUboot2.java> 
+long FUN_0023d9fc(undefined8 param_1,int param_2)
+
+{
+  uint uVar1;
+  int iVar2;
+  int iVar3;
+  long lVar4;
+  long *plVar5;
+  long local_8;
+  
+  uVar1 = FUN_0023d990();
+  if (((uVar1 != 0) && (iVar3 = *(int *)(&DAT_002a3c68 + (ulong)uVar1 * 4), iVar3 != -1)) &&
+     (iVar2 = FUN_002312d4(0xd,&local_8), iVar2 == 0)) {
+    for (plVar5 = *(long **)(local_8 + 0x10); plVar5 != (long *)(local_8 + 0x10);
+        plVar5 = (long *)*plVar5) {
+      lVar4 = FUN_002306cc(plVar5 + -0xc);
+      if ((*(int *)(lVar4 + 4) == param_2) && (iVar2 = FUN_0023081c(plVar5[-5]), iVar3 == iVar2)) {
+        iVar3 = FUN_002303fc(plVar5 + -0xc);
+        if (iVar3 != 0) {
+          return 0;
+        }
+        return lVar4;
+      }
+    }
+  }
+  return 0;
+}
+
+ (GhidraScript)  
+INFO  TraceUboot2.java>   -- callees of FUN_0023d9fc -- (GhidraScript)  
+INFO  TraceUboot2.java>      FUN_002306cc @ 002306cc (GhidraScript)  
+INFO  TraceUboot2.java>      FUN_002303fc @ 002303fc (GhidraScript)  
+INFO  TraceUboot2.java>      FUN_0023d990 @ 0023d990 (GhidraScript)  
+INFO  TraceUboot2.java>      FUN_0023081c @ 0023081c (GhidraScript)  
+INFO  TraceUboot2.java>      FUN_002312d4 @ 002312d4 (GhidraScript)  
+INFO  TraceUboot2.java> 
+================ 0023dcdc ================ (GhidraScript)  
+INFO  TraceUboot2.java> --- FUN_0023dcdc @ 0023dcdc size=8 --- (GhidraScript)  
+INFO  TraceUboot2.java> 
+void FUN_0023dcdc(long param_1)
+
+{
+  FUN_0023dcb4(*(undefined8 *)(param_1 + 0x80));
+  return;
+}
+
+ (GhidraScript)  
+INFO  TraceUboot2.java>   -- callees of FUN_0023dcdc -- (GhidraScript)  
+INFO  TraceUboot2.java>      FUN_0023dcb4 @ 0023dcb4 (GhidraScript)  
+INFO  TraceUboot2.java> 
+================ 002237f8 ================ (GhidraScript)  
+INFO  TraceUboot2.java> --- FUN_002237f8 @ 002237f8 size=460 --- (GhidraScript)  
+INFO  TraceUboot2.java> 
+undefined8 FUN_002237f8(long param_1,undefined8 param_2)
+
+{
+  int iVar1;
+  uint uVar2;
+  char *pcVar3;
+  undefined8 uVar4;
+  undefined *puVar5;
+  ulong uVar6;
+  undefined8 local_c8 [2];
+  undefined1 local_b1;
+  undefined2 local_b0;
+  undefined1 local_ae;
+  undefined8 local_a8;
+  undefined8 uStack_a0;
+  undefined8 local_98;
+  undefined4 local_90;
+  undefined2 local_8c;
+  undefined1 auStack_88 [136];
+  
+  local_b0 = 0;
+  local_ae = 0;
+  local_c8[0] = param_2;
+  iVar1 = FUN_0022a268(param_1,&DAT_002c0e27,auStack_88);
+  if (iVar1 < 0) {
+    uVar6 = 0;
+    FUN_0029acbc(s_Could_not_find_misc_partition_002b924b);
+  }
+  else {
+    FUN_00228fa8(param_1,auStack_88);
+    uVar2 = FUN_00222d7c(param_1,auStack_88);
+    uVar6 = (ulong)uVar2;
+    if (uVar2 == 0) {
+      iVar1 = FUN_002026c8();
+      uVar6 = (ulong)(iVar1 == 1);
+    }
+    else {
+      puVar5 = (undefined *)0x0;
+      if (2 < uVar2) goto LAB_00223884;
+    }
+  }
+  uVar2 = (uint)uVar6;
+  puVar5 = (&PTR_s__none__002a0ae0)[uVar6];
+LAB_00223884:
+  FUN_0029acbc(s_ANDROID__reboot_reason____s__002b58da,puVar5);
+  if (uVar2 == 1) {
+    pcVar3 = s_FAILCannot_set_boot_recovery_002b7c06 + 0x14;
+  }
+  else {
+    if (uVar2 == 2) {
+      pcVar3 = (char *)FUN_002139d0(s_fastbootcmd_002b58f8);
+      if (pcVar3 == (char *)0x0) {
+        FUN_0029acbc(s_fastboot_cmd_is_null__run_defaul_002b5904);
+        pcVar3 = s_fastboot_usb_0_002b58cb;
+      }
+      uVar4 = FUN_00227608(pcVar3,4);
+      return uVar4;
+    }
+    pcVar3 = &DAT_002ca68a;
+  }
+  iVar1 = FUN_00223774(param_1,pcVar3,local_c8);
+  if (iVar1 == 0) {
+    FUN_002135ec(s_android_root_devnum_002b5950,(long)*(int *)(param_1 + 4));
+    FUN_00213594(s_android_slotsufix_002b5964,&local_b0);
+    local_b1 = 0;
+    local_8c = 0;
+    local_a8 = 0;
+    uStack_a0 = 0;
+    local_98 = 0;
+    local_90 = 0;
+    iVar1 = FUN_00228c08(&local_b1);
+    if (iVar1 == 0) {
+      FUN_0029ab88(&local_a8,0x1e,s_androidboot_oem_unlocked__d_002b9294,local_b1);
+      FUN_00214268(s_andr_bootargs_002b6be6 + 5,&local_a8);
+    }
+    else {
+      FUN_0029acbc(s_read_oem_unlock_status_with_erro_002b5976,iVar1);
+    }
+    uVar4 = FUN_002231a8(&local_b0,0);
+    FUN_00214268(s_andr_bootargs_002b6be6 + 5,uVar4);
+    iVar1 = FUN_0028f6c0();
+    if (iVar1 != 0) {
+      FUN_0029acbc(s_Close_optee_client_failed__002b59a0);
+    }
+    FUN_00222f24(local_c8[0]);
+  }
+  else {
+    FUN_0029acbc(s_Android_image_load_failed_002b5935);
+  }
+  return 0xffffffff;
+}
+
+ (GhidraScript)  
+INFO  TraceUboot2.java>   -- callees of FUN_002237f8 -- (GhidraScript)  
+INFO  TraceUboot2.java>      FUN_002026c8 @ 002026c8 (GhidraScript)  
+INFO  TraceUboot2.java>      FUN_002231a8 @ 002231a8 (GhidraScript)  
+INFO  TraceUboot2.java>      FUN_00213594 @ 00213594 (GhidraScript)  
+INFO  TraceUboot2.java>      FUN_00222f24 @ 00222f24 (GhidraScript)  
+INFO  TraceUboot2.java>      FUN_00223774 @ 00223774 (GhidraScript)  
+INFO  TraceUboot2.java>      FUN_0029acbc @ 0029acbc (GhidraScript)  
+INFO  TraceUboot2.java>      FUN_00222d7c @ 00222d7c (GhidraScript)  
+INFO  TraceUboot2.java>      FUN_0022a268 @ 0022a268 (GhidraScript)  
+INFO  TraceUboot2.java>      FUN_00228fa8 @ 00228fa8 (GhidraScript)  
+INFO  TraceUboot2.java>      FUN_00227608 @ 00227608 (GhidraScript)  
+INFO  TraceUboot2.java>      FUN_0028f6c0 @ 0028f6c0 (GhidraScript)  
+INFO  TraceUboot2.java>      FUN_00214268 @ 00214268 (GhidraScript)  
+INFO  TraceUboot2.java>      FUN_0029ab88 @ 0029ab88 (GhidraScript)  
+INFO  TraceUboot2.java>      FUN_002135ec @ 002135ec (GhidraScript)  
+INFO  TraceUboot2.java>      FUN_002139d0 @ 002139d0 (GhidraScript)  
+INFO  TraceUboot2.java>      FUN_00228c08 @ 00228c08 (GhidraScript)  
+INFO  TraceUboot2.java> 
+================ 00223774 ================ (GhidraScript)  
+INFO  TraceUboot2.java> --- FUN_00223774 @ 00223774 size=132 --- (GhidraScript)  
+INFO  TraceUboot2.java> 
+int FUN_00223774(undefined8 param_1,undefined8 param_2,long *param_3)
+
+{
+  int iVar1;
+  long lVar2;
+  undefined1 auStack_88 [136];
+  
+  iVar1 = FUN_0022a268(param_1,param_2,auStack_88);
+  if (iVar1 < 0) {
+    FUN_0029acbc(s__s__Can_t_find_part___s_002b5f2c,s_android_image_load_by_partname_002a1498,
+                 param_2);
+    iVar1 = -1;
+  }
+  else {
+    iVar1 = FUN_0022255c(param_1,auStack_88,*param_3,0xffffffffffffffff);
+    if (-1 < iVar1) {
+      lVar2 = (long)iVar1;
+      iVar1 = 0;
+      *param_3 = lVar2;
+    }
+  }
+  return iVar1;
+}
+
+ (GhidraScript)  
+INFO  TraceUboot2.java>   -- callees of FUN_00223774 -- (GhidraScript)  
+INFO  TraceUboot2.java>      FUN_0029acbc @ 0029acbc (GhidraScript)  
+INFO  TraceUboot2.java>      FUN_0022255c @ 0022255c (GhidraScript)  
+INFO  TraceUboot2.java>      FUN_0022a268 @ 0022a268 (GhidraScript)  
+INFO  TraceUboot2.java> 
+================ 002233bc ================ (GhidraScript)  
+INFO  TraceUboot2.java> --- FUN_002233bc @ 002233bc size=952 --- (GhidraScript)  
+INFO  TraceUboot2.java> 
+/* WARNING: Type propagation algorithm not settling */
+
+undefined8 FUN_002233bc(long param_1)
+
+{
+  uint uVar1;
+  uint uVar2;
+  ulong uVar3;
+  char cVar4;
+  int iVar5;
+  int iVar6;
+  long lVar7;
+  undefined8 uVar8;
+  long lVar9;
+  undefined4 *puVar10;
+  long lVar11;
+  char *pcVar12;
+  char *pcVar13;
+  ulong uVar14;
+  undefined1 auStack_13c [4];
+  long local_138 [5];
+  undefined1 auStack_110 [136];
+  ulong local_88 [2];
+  ulong local_78;
+  
+  local_138[1] = 0;
+  local_138[2] = 0;
+  local_138[3] = 0;
+  local_138[4] = 0;
+  iVar5 = FUN_002026c8();
+  if (iVar5 == 1) {
+    pcVar12 = s_FAILCannot_set_boot_recovery_002b7c06 + 0x14;
+    pcVar13 = pcVar12;
+  }
+  else {
+    pcVar12 = &DAT_002b5cc3;
+    pcVar13 = &DAT_002ca68a;
+  }
+  lVar7 = FUN_00202ce0();
+  if (lVar7 == 0) {
+    return 0xffffffed;
+  }
+  uVar8 = FUN_0022a268(lVar7,pcVar13,auStack_110);
+  if ((int)uVar8 < 0) {
+    return uVar8;
+  }
+  lVar7 = FUN_00221c00(lVar7,auStack_110);
+  if (lVar7 == 0) {
+    return 0xffffffea;
+  }
+  if ((*(uint *)(lVar7 + 0x28) == 0) ||
+     (((2 < *(uint *)(lVar7 + 0x28) &&
+       (iVar5 = FUN_0029915c(pcVar13,s_FAILCannot_set_boot_recovery_002b7c06 + 0x14), iVar5 == 0))
+      || (lVar9 = FUN_00202ce0(), lVar9 == 0)))) goto LAB_00223460;
+  iVar5 = FUN_0022a268(lVar9,pcVar12,local_88);
+  if (iVar5 < 0) {
+    FUN_0029acbc(s_No__s_partition__ret__d_002b5cc8,pcVar12,iVar5);
+    goto LAB_00223460;
+  }
+  iVar5 = FUN_0029915c(pcVar12,s_FAILCannot_set_boot_recovery_002b7c06 + 0x14);
+  uVar14 = local_88[0];
+  if (iVar5 == 0) {
+    iVar5 = 0;
+    if (local_78 != 0) {
+      iVar5 = (int)(*(ulong *)(lVar7 + 0x664) / local_78);
+    }
+    uVar14 = (ulong)(uint)(iVar5 + (int)local_88[0]);
+  }
+  puVar10 = (undefined4 *)FUN_0021f8c0(0x40,local_78);
+  if (puVar10 == (undefined4 *)0x0) goto LAB_00223460;
+  iVar5 = FUN_0023deec(lVar9,uVar14 & 0xffffffff,1,puVar10);
+  if (iVar5 == 1) {
+    cVar4 = FUN_002264d8(puVar10);
+    if (cVar4 == '\0') {
+      iVar5 = -0x16;
+      FUN_0029acbc(s_DTBO__invalid_dt_table_header__0_002b5ce1,*puVar10);
+      goto LAB_00223590;
+    }
+    uVar1 = (puVar10[1] & 0xff00ff00) >> 8 | (puVar10[1] & 0xff00ff) << 8;
+    uVar3 = 0;
+    if (local_78 != 0) {
+      uVar3 = ((local_78 - 1) + (ulong)(uVar1 >> 0x10 | uVar1 << 0x10)) / local_78;
+    }
+    lVar11 = FUN_0021f8c0(0x40,local_78 * (uVar3 & 0xffffffff));
+    if (lVar11 == 0) {
+      iVar5 = -0xc;
+      goto LAB_00223590;
+    }
+    iVar5 = FUN_0023deec(lVar9,uVar14 & 0xffffffff,uVar3 & 0xffffffff,lVar11);
+    if ((int)uVar3 != iVar5) {
+LAB_0022361c:
+      FUN_0021ead0(lVar11);
+      goto LAB_00223590;
+    }
+    iVar5 = FUN_002233b4(lVar11);
+    if (iVar5 < 0) {
+      FUN_0029acbc(s__s__failed_to_select_board_fdt_i_002b5d06,s_android_get_dtbo_002a1480);
+LAB_00223618:
+      iVar5 = -0x16;
+      goto LAB_0022361c;
+    }
+    cVar4 = FUN_002264f0(lVar11,iVar5,local_138,auStack_13c);
+    if (cVar4 == '\0') {
+      FUN_0029acbc(s__s__failed_to_get_fdt__index__d_002b5d2c,s_android_get_dtbo_002a1480,iVar5);
+      goto LAB_00223618;
+    }
+    FUN_0021ead0(puVar10);
+    lVar9 = local_138[0];
+  }
+  else {
+LAB_00223590:
+    FUN_0021ead0(puVar10);
+    if (iVar5 != 0) goto LAB_00223460;
+    iVar5 = -1;
+    lVar9 = -1;
+  }
+  uVar1 = (*(uint *)(lVar9 + 4) & 0xff00ff00) >> 8 | (*(uint *)(lVar9 + 4) & 0xff00ff) << 8;
+  uVar2 = (*(uint *)(param_1 + 4) & 0xff00ff00) >> 8 | (*(uint *)(param_1 + 4) & 0xff00ff) << 8;
+  iVar6 = FUN_0028b6ec(param_1);
+  if ((iVar6 == 0) &&
+     (lVar11 = FUN_0028b514(10,param_1,
+                            (ulong)((uVar2 >> 0x10 | uVar2 << 0x10) +
+                                   (uVar1 >> 0x10 | uVar1 << 0x10)) + 0x3000), lVar11 != 0)) {
+    uVar1 = (*(uint *)(param_1 + 4) & 0xff00ff00) >> 8 | (*(uint *)(param_1 + 4) & 0xff00ff) << 8;
+    uVar1 = uVar1 >> 0x10 | uVar1 << 0x10;
+    lVar11 = FUN_0021ed00(uVar1);
+    if (lVar11 != 0) {
+      FUN_002994ac(lVar11,param_1,uVar1);
+      uVar2 = (*(uint *)(lVar9 + 4) & 0xff00ff00) >> 8 | (*(uint *)(lVar9 + 4) & 0xff00ff) << 8;
+      FUN_00218dd4(param_1,uVar2 >> 0x10 | uVar2 << 0x10);
+      iVar6 = FUN_00288aa8(param_1,lVar9);
+      if (iVar6 == 0) {
+        FUN_0029ab88(local_138 + 1,0x20,&DAT_002b8d00,s_androidboot_dtbo_idx__002b5d4d,iVar5);
+        FUN_00214268(s_andr_bootargs_002b6be6 + 5,local_138 + 1);
+        FUN_0029acbc(s_ANDROID__fdt_overlay_OK_002b5d63);
+      }
+      else {
+        FUN_002994ac(param_1,lVar11,uVar1);
+        FUN_0029acbc(s_ANDROID__fdt_overlay_failed__ret_002b5d7c,iVar6);
+      }
+      FUN_0021ead0(lVar11);
+    }
+  }
+LAB_00223460:
+  FUN_0021ead0(lVar7);
+  return 0;
+}
+
+ (GhidraScript)  
+INFO  TraceUboot2.java>   -- callees of FUN_002233bc -- (GhidraScript)  
+INFO  TraceUboot2.java>      FUN_0021f8c0 @ 0021f8c0 (GhidraScript)  
+INFO  TraceUboot2.java>      FUN_002026c8 @ 002026c8 (GhidraScript)  
+INFO  TraceUboot2.java>      FUN_002233b4 @ 002233b4 (GhidraScript)  
+INFO  TraceUboot2.java>      FUN_0028b514 @ 0028b514 (GhidraScript)  
+INFO  TraceUboot2.java>      FUN_0021ed00 @ 0021ed00 (GhidraScript)  
+INFO  TraceUboot2.java>      FUN_00218dd4 @ 00218dd4 (GhidraScript)  
+INFO  TraceUboot2.java>      FUN_0021ead0 @ 0021ead0 (GhidraScript)  
+INFO  TraceUboot2.java>      FUN_00221c00 @ 00221c00 (GhidraScript)  
+INFO  TraceUboot2.java>      FUN_002264f0 @ 002264f0 (GhidraScript)  
+INFO  TraceUboot2.java>      FUN_0029acbc @ 0029acbc (GhidraScript)  
+INFO  TraceUboot2.java>      FUN_0022a268 @ 0022a268 (GhidraScript)  
+INFO  TraceUboot2.java>      FUN_002994ac @ 002994ac (GhidraScript)  
+INFO  TraceUboot2.java>      FUN_00202ce0 @ 00202ce0 (GhidraScript)  
+INFO  TraceUboot2.java>      FUN_00288aa8 @ 00288aa8 (GhidraScript)  
+INFO  TraceUboot2.java>      FUN_002264d8 @ 002264d8 (GhidraScript)  
+INFO  TraceUboot2.java>      FUN_0029ab88 @ 0029ab88 (GhidraScript)  
+INFO  TraceUboot2.java>      FUN_00214268 @ 00214268 (GhidraScript)  
+INFO  TraceUboot2.java>      FUN_0028b6ec @ 0028b6ec (GhidraScript)  
+INFO  TraceUboot2.java>      FUN_0023deec @ 0023deec (GhidraScript)  
+INFO  TraceUboot2.java>      FUN_0029915c @ 0029915c (GhidraScript)  
+INFO  REPORT: Save succeeded for processed file: /uboot.bin (HeadlessAnalyzer)  

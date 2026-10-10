@@ -1,0 +1,218 @@
+INFO  Using log config file: jar:file:/C:/Users/user/Desktop/CODING%20STUFF/ProjectorRoot/tools/ghidra_install/ghidra_12.1.3_PUBLIC/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml (LoggingInitialization)  
+INFO  Using log file: C:\Users\user\AppData\Roaming\ghidra\ghidra_12.1.3_PUBLIC\application.log (LoggingInitialization)  
+INFO  Loading user preferences: C:\Users\user\AppData\Roaming\ghidra\ghidra_12.1.3_PUBLIC\preferences (Preferences)  
+INFO  Searching for classes... (ClassSearcher)  
+INFO  Class search complete (1549 ms) (ClassSearcher)  
+INFO  Initializing SSL Context (DefaultSSLContextInitializer)  
+INFO  Initializing Random Number Generator... (SecureRandomFactory)  
+INFO  Random Number Generator initialization complete: SHA1PRNG (SecureRandomFactory)  
+INFO  Trust manager disabled, cacerts have not been set (DefaultTrustManagerFactory)  
+INFO  Headless startup complete (9388 ms) (AnalyzeHeadless)  
+INFO  Class searcher loaded 211 extension points (114 false positives) (ClassSearcher)  
+INFO  HEADLESS Script Paths:
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Features\BSim\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Debug\Debugger\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Features\VersionTracking\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Processors\8051\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Features\FunctionID\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Processors\PIC\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Processors\DATA\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Features\Base\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Features\SystemEmulation\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Features\FileFormats\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Debug\Debugger-rmi-trace\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Features\PyGhidra\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Features\SwiftDemangler\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Features\WildcardAssembler\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Processors\Atmel\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Features\MicrosoftCodeAnalyzer\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Features\BytePatterns\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Features\PDB\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Features\DecompilerDependent\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Features\Decompiler\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Features\GnuDemangler\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Processors\JVM\ghidra_scripts (HeadlessAnalyzer)  
+INFO  HEADLESS: execution starts (HeadlessAnalyzer)  
+INFO  Creating project: C:\Users\user\Desktop\CODING~1\PROJEC~1\tools\ghidra_project\ubootproj (HeadlessAnalyzer)  
+INFO  Creating project: C:\Users\user\Desktop\CODING~1\PROJEC~1\tools\ghidra_project\ubootproj (DefaultProject)  
+INFO  REPORT: Processing input files:  (HeadlessAnalyzer)  
+INFO       project: C:\Users\user\Desktop\CODING~1\PROJEC~1\tools\ghidra_project\ubootproj (HeadlessAnalyzer)  
+INFO  IMPORTING: file:///C:/Users/user/Desktop/CODING STUFF/ProjectorRoot/init_rc_revert/emmc_dumps/uboot.bin (HeadlessAnalyzer)  
+INFO  Successfully applied "-loader-baseAddr" to "Base Address" (old: "null", new: "0x1FF800") (ProgramLoader)  
+INFO  Successfully applied "-loader-fileOffset" to "File Offset" (old: "0x0", new: "0x0") (ProgramLoader)  
+INFO  Successfully applied "-loader-length" to "Length" (old: "0x400000", new: "0x200000") (ProgramLoader)  
+INFO  Using Loader: Raw Binary (ProgramLoader)  
+INFO  Using Language/Compiler: AARCH64:LE:64:v8A:default (ProgramLoader)  
+INFO  Using Library Search Path: [., C:\WINDOWS\SysWOW64, C:\Program Files\Java\jdk-21\bin, C:\WINDOWS\Sun\Java\bin, C:\WINDOWS\system32, C:\WINDOWS, C:\Users\user\bin, C:\Program Files\Git\mingw64\bin, C:\Program Files\Git\usr\local\bin, C:\Program Files\Git\usr\bin, C:\Program Files\Common Files\Oracle\Java\javapath, C:\Program Files (x86)\Common Files\Oracle\Java\java8path, C:\Program Files (x86)\Common Files\Oracle\Java\javapath, C:\WINDOWS\System32\Wbem, C:\WINDOWS\System32\WindowsPowerShell\v1.0, C:\WINDOWS\System32\OpenSSH, C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn, C:\Program Files\Microsoft SQL Server\100\Tools\Binn, C:\Program Files\Microsoft SQL Server\100\DTS\Binn, C:\Program Files\dotnet, C:\Program Files\PuTTY, C:\Program Files (x86)\dotnet, C:\Program Files\Cloudflare\Cloudflare WARP, C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit, C:\Program Files\Git\cmd, C:\Users\user\Documents\Important batch scripts, C:\Users\user\Desktop\Gdrive multi downloader, %NVM_HOME%, %NVM_SYMLINK%, C:\Program Files\Docker\Docker\resources\bin, C:\Program Files\GitHub CLI, C:\Users\user\.local\bin, C:\Users\user\AppData\Local\Programs\Python\Python311\Scripts, C:\Users\user\AppData\Local\Programs\Python\Python311, C:\Users\user\AppData\Local\Programs\Python\Launcher, C:\Users\user\AppData\Local\Microsoft\WindowsApps, C:\Users\user\AppData\Roaming\npm, C:\Users\user\AppData\Local\Programs\Microsoft VS Code\bin, C:\Users\user\.dotnet\tools, C:\Users\user\Desktop\BTBN, C:\Users\user\AppData\Local\Programs\Ollama, C:\Users\user\AppData\Local\Microsoft\WinGet\Packages\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\ffmpeg-8.0.1-full_build\bin, C:\Users\user\AppData\Local\nvm, C:\nvm4w\nodejs, C:\Users\user\AppData\Local\Microsoft\WinGet\Packages\Google.PlatformTools_Microsoft.Winget.Source_8wekyb3d8bbwe\platform-tools, C:\Users\user\AppData\Local\Microsoft\WinGet\Packages\akeo.ie.Zadig_Microsoft.Winget.Source_8wekyb3d8bbwe, C:\Program Files\Git\usr\bin\vendor_perl, C:\Program Files\Git\usr\bin\core_perl, C:\Users\user\.claude\plugins\cache\ponytail\ponytail\4.9.0\bin] (ProgramLoader)  
+INFO  IMPORTING: Loaded 0 additional files (HeadlessAnalyzer)  
+INFO  ANALYZING all memory and code: file:///C:/Users/user/Desktop/CODING STUFF/ProjectorRoot/init_rc_revert/emmc_dumps/uboot.bin (HeadlessAnalyzer)  
+INFO  Packed database cache: C:\Users\user\AppData\Local\ghidra\packed-db-cache (PackedDatabaseCache)  
+INFO  Applied data type archive: generic_clib_64 (ApplyDataArchiveAnalyzer)  
+INFO  -----------------------------------------------------
+    AARCH64 ELF PLT Thunks                     0.000 secs
+    ASCII Strings                              1.020 secs
+    Apply Data Archives                        0.833 secs
+    Basic Constant Reference Analyzer          9.843 secs
+    Call-Fixup Installer                       0.153 secs
+    Create Address Tables                      0.180 secs
+    Create Address Tables - One Time           2.048 secs
+    Create Function                            1.051 secs
+    Data Reference                             0.776 secs
+    Decompiler Switch Analysis                25.555 secs
+    Demangler GNU                              0.007 secs
+    Disassemble                                4.829 secs
+    Disassemble Entry Points                   0.003 secs
+    Embedded Media                             0.119 secs
+    External Entry References                  0.000 secs
+    Function ID                                0.146 secs
+    Function Start Search                      0.195 secs
+    Function Start Search After Code           0.459 secs
+    Function Start Search After Data           0.071 secs
+    Function Start Search delayed - One Time   0.287 secs
+    Non-Returning Functions - Discovered       0.476 secs
+    Reference                                  2.271 secs
+    Shared Return Calls                        0.600 secs
+    Stack                                      9.358 secs
+    Subroutine References                      1.708 secs
+    Subroutine References - One Time           0.000 secs
+-----------------------------------------------------
+     Total Time   61 secs
+-----------------------------------------------------
+ (AutoAnalysisManager)  
+INFO  REPORT: Analysis succeeded for file: file:///C:/Users/user/Desktop/CODING STUFF/ProjectorRoot/init_rc_revert/emmc_dumps/uboot.bin (HeadlessAnalyzer)  
+INFO  REPORT: Execute script: TraceUboot.java  (HeadlessAnalyzer)  
+INFO  SCRIPT: C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_scripts\TraceUboot.java (HeadlessAnalyzer)  
+INFO  TraceUboot.java> ========================================================= (GhidraScript)  
+INFO  TraceUboot.java> STEP 1: verify base address mapping (GhidraScript)  
+INFO  TraceUboot.java> ========================================================= (GhidraScript)  
+INFO  TraceUboot.java>   'boot_android' string @ 002a27f8 (GhidraScript)  
+INFO  TraceUboot.java>   WARNING: no pointer to 0x208774 found near the 'boot_android' string. Base address mapping NOT independently confirmed by this method. (GhidraScript)  
+INFO  TraceUboot.java> 
+========================================================= (GhidraScript)  
+INFO  TraceUboot.java> STEP 2: resolve known strings -> containing functions (GhidraScript)  
+INFO  TraceUboot.java> ========================================================= (GhidraScript)  
+INFO  TraceUboot.java>   "boot_android" string @ 002a27f8 (GhidraScript)  
+INFO  TraceUboot.java>   "android_image_load_by_partname" string @ 002a1498 (GhidraScript)  
+INFO  TraceUboot.java>       referenced from 002237a8 inside function FUN_00223774 @ 00223774 (GhidraScript)  
+INFO  TraceUboot.java>   "android_bcb_write" string @ 002a1468 (GhidraScript)  
+INFO  TraceUboot.java>       referenced from 00222ec8 inside function FUN_00222e68 @ 00222e68 (GhidraScript)  
+INFO  TraceUboot.java>       referenced from 00222ef8 inside function FUN_00222e68 @ 00222e68 (GhidraScript)  
+INFO  TraceUboot.java>   "android_get_dtbo" string @ 002a1480 (GhidraScript)  
+INFO  TraceUboot.java>       referenced from 0022360c inside function FUN_002233bc @ 002233bc (GhidraScript)  
+INFO  TraceUboot.java>       referenced from 00223650 inside function FUN_002233bc @ 002233bc (GhidraScript)  
+INFO  TraceUboot.java>   "gpt_restore" string @ 002a13a8 (GhidraScript)  
+INFO  TraceUboot.java>       referenced from 0022c978 inside function FUN_0022c920 @ 0022c920 (GhidraScript)  
+INFO  TraceUboot.java>       referenced from 0022c9e4 inside function FUN_0022c920 @ 0022c920 (GhidraScript)  
+INFO  TraceUboot.java>   "gpt_verify_headers" string @ 002a13b8 (GhidraScript)  
+INFO  TraceUboot.java>       referenced from 0022caac inside function FUN_0022ca70 @ 0022ca70 (GhidraScript)  
+INFO  TraceUboot.java>       referenced from 0022cafc inside function FUN_0022ca70 @ 0022ca70 (GhidraScript)  
+INFO  TraceUboot.java>   "is_valid_gpt_buf" string @ 002a13d0 (GhidraScript)  
+INFO  TraceUboot.java>       referenced from 0022cd74 inside function FUN_0022ccfc @ 0022ccfc (GhidraScript)  
+INFO  TraceUboot.java>   "write_mbr_and_gpt_partitions" string @ 002a1400 (GhidraScript)  
+INFO  TraceUboot.java>       referenced from 0022cee8 inside function FUN_0022ce00 @ 0022ce00 (GhidraScript)  
+INFO  TraceUboot.java>   "set_protective_mbr" string @ 002a1390 (GhidraScript)  
+INFO  TraceUboot.java>       referenced from 0022afd0 inside function FUN_0022af98 @ 0022af98 (GhidraScript)  
+INFO  TraceUboot.java>   "fb_mmc_flash_write" string @ 002a1330 (GhidraScript)  
+INFO  TraceUboot.java>       referenced from 00226da0 inside function FUN_00226d54 @ 00226d54 (GhidraScript)  
+INFO  TraceUboot.java>       referenced from 00226e14 inside function FUN_00226d54 @ 00226d54 (GhidraScript)  
+INFO  TraceUboot.java>       referenced from 00226e34 inside function FUN_00226d54 @ 00226d54 (GhidraScript)  
+INFO  TraceUboot.java>       referenced from 00226e94 inside function FUN_00226d54 @ 00226d54 (GhidraScript)  
+INFO  TraceUboot.java>       referenced from 00226ef0 inside function FUN_00226d54 @ 00226d54 (GhidraScript)  
+INFO  TraceUboot.java>       referenced from 00226f0c inside function FUN_00226d54 @ 00226d54 (GhidraScript)  
+INFO  TraceUboot.java>       referenced from 00226f3c inside function FUN_00226d54 @ 00226d54 (GhidraScript)  
+INFO  TraceUboot.java>   "blk_dwrite" string @ 002c3d5c (GhidraScript)  
+INFO  TraceUboot.java>   "mmc write" string @ 002b77f9 (GhidraScript)  
+INFO  TraceUboot.java>   "mmc erase" string @ 002c0f5e (GhidraScript)  
+INFO  TraceUboot.java>       referenced from 00240a5c inside function FUN_002409a8 @ 002409a8 (GhidraScript)  
+INFO  TraceUboot.java>   "system" string @ 002b7d52 (GhidraScript)  
+INFO  TraceUboot.java>   "super" string @ 002d16a5 (GhidraScript)  
+INFO  TraceUboot.java> 
+========================================================= (GhidraScript)  
+INFO  TraceUboot.java> STEP 3: decompile do_boot_android (GhidraScript)  
+INFO  TraceUboot.java> ========================================================= (GhidraScript)  
+INFO  TraceUboot.java>   function @ 00208774 -> do_boot_android (GhidraScript)  
+INFO  TraceUboot.java> --- do_boot_android @ 00208774 --- (GhidraScript)  
+INFO  TraceUboot.java> 
+undefined8 do_boot_android(undefined8 param_1,undefined8 param_2,int param_3,long param_4)
+
+{
+  undefined8 uVar1;
+  undefined4 uVar2;
+  int iVar3;
+  ulong uVar4;
+  long lVar5;
+  char *pcStack_8;
+  
+  if (2 < param_3 - 3U) {
+    return 0xffffffff;
+  }
+  if (param_3 == 5) {
+    uVar4 = FUN_0029af2c(*(undefined8 *)(param_4 + 0x20),&pcStack_8,0x10);
+    if ((*(char **)(param_4 + 0x20) == pcStack_8) || (*pcStack_8 != '\0')) {
+      return 0xffffffff;
+    }
+  }
+  else {
+    lVar5 = FUN_002139d0(s_kernel_addr_r_002b6cc3);
+    if (lVar5 == 0) {
+      uVar4 = 0x800000;
+    }
+    else {
+      uVar4 = FUN_0029af2c(lVar5,0,0x10);
+    }
+  }
+  uVar1 = *(undefined8 *)(param_4 + 8);
+  uVar2 = FUN_0029af2c(*(undefined8 *)(param_4 + 0x10),0,0x10);
+  lVar5 = FUN_002298a0(uVar1,uVar2);
+  if (lVar5 == 0) {
+    FUN_0029acbc(s_Could_not_get__s__s_002b9216,*(undefined8 *)(param_4 + 8),
+                 *(undefined8 *)(param_4 + 0x10));
+  }
+  else {
+    iVar3 = FUN_002237f8(lVar5,uVar4 & 0xfffffffffff80000);
+    if (-1 < iVar3) {
+      return 0;
+    }
+    FUN_0029acbc(s_Android_boot_failed__error__d__002b922b,iVar3);
+  }
+  return 1;
+}
+
+ (GhidraScript)  
+INFO  TraceUboot.java> 
+========================================================= (GhidraScript)  
+INFO  TraceUboot.java> STEP 4: list direct callees of do_boot_android (GhidraScript)  
+INFO  TraceUboot.java> ========================================================= (GhidraScript)  
+INFO  TraceUboot.java> 
+========================================================= (GhidraScript)  
+INFO  TraceUboot.java> STEP 5: decompile dispatch function @ file 0x2a0a0 (GhidraScript)  
+INFO  TraceUboot.java> ========================================================= (GhidraScript)  
+INFO  TraceUboot.java>   function @ 002298a0 -> FUN_002298a0 (GhidraScript)  
+INFO  TraceUboot.java> --- FUN_002298a0 @ 002298a0 --- (GhidraScript)  
+INFO  TraceUboot.java> 
+long FUN_002298a0(void)
+
+{
+  int iVar1;
+  long lVar2;
+  
+  lVar2 = FUN_0023d9fc();
+  if ((lVar2 == 0) || (iVar1 = FUN_0023dcdc(lVar2,0), iVar1 != 0)) {
+    lVar2 = 0;
+  }
+  return lVar2;
+}
+
+ (GhidraScript)  
+INFO  TraceUboot.java> 
+========================================================= (GhidraScript)  
+INFO  TraceUboot.java> STEP 6: walk call graph from do_boot_android, depth<=3, (GhidraScript)  
+INFO  TraceUboot.java> full-print any function whose decompiled body mentions a write/mmc/blk/gpt keyword (GhidraScript)  
+INFO  TraceUboot.java> ========================================================= (GhidraScript)  
+INFO  TraceUboot.java> [skip ] do_boot_android @ 00208774 depth=0 size=20 (GhidraScript)  
+INFO  ANALYZING changes made by post scripts: file:///C:/Users/user/Desktop/CODING STUFF/ProjectorRoot/init_rc_revert/emmc_dumps/uboot.bin (HeadlessAnalyzer)  
+INFO  REPORT: Post-analysis succeeded for file: file:///C:/Users/user/Desktop/CODING STUFF/ProjectorRoot/init_rc_revert/emmc_dumps/uboot.bin (HeadlessAnalyzer)  
+INFO  /uboot.bin: file created (user) (LocalFileSystem)  
+INFO  REPORT: Save succeeded for: /uboot.bin (ubootproj:/uboot.bin) (HeadlessAnalyzer)  
+INFO  REPORT: Import succeeded (HeadlessAnalyzer)  

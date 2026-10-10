@@ -1,0 +1,1130 @@
+java version "21.0.8" 2025-07-15 LTS
+Java(TM) SE Runtime Environment (build 21.0.8+12-LTS-250)
+Java HotSpot(TM) 64-Bit Server VM (build 21.0.8+12-LTS-250, mixed mode)
+INFO  Using log config file: jar:file:/C:/Users/user/Desktop/CODING%20STUFF/ProjectorRoot/tools/ghidra_install/ghidra_12.1.3_PUBLIC/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml (LoggingInitialization)  
+INFO  Using log file: C:\Users\user\AppData\Roaming\ghidra\ghidra_12.1.3_PUBLIC\application.log (LoggingInitialization)  
+INFO  Loading user preferences: C:\Users\user\AppData\Roaming\ghidra\ghidra_12.1.3_PUBLIC\preferences (Preferences)  
+INFO  Searching for classes... (ClassSearcher)  
+INFO  Class search complete (1443 ms) (ClassSearcher)  
+INFO  Initializing SSL Context (DefaultSSLContextInitializer)  
+INFO  Initializing Random Number Generator... (SecureRandomFactory)  
+INFO  Random Number Generator initialization complete: SHA1PRNG (SecureRandomFactory)  
+INFO  Trust manager disabled, cacerts have not been set (DefaultTrustManagerFactory)  
+INFO  Headless startup complete (4828 ms) (AnalyzeHeadless)  
+INFO  Class searcher loaded 59 extension points (20 false positives) (ClassSearcher)  
+INFO  HEADLESS Script Paths:
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Features\BSim\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Debug\Debugger\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Features\VersionTracking\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Processors\8051\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Features\FunctionID\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Processors\PIC\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Processors\DATA\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Features\Base\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Features\SystemEmulation\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Features\FileFormats\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Debug\Debugger-rmi-trace\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Features\PyGhidra\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Features\SwiftDemangler\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Features\WildcardAssembler\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Processors\Atmel\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Features\MicrosoftCodeAnalyzer\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Features\BytePatterns\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Features\PDB\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Features\DecompilerDependent\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Features\Decompiler\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Features\GnuDemangler\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Processors\JVM\ghidra_scripts (HeadlessAnalyzer)  
+INFO  HEADLESS: execution starts (HeadlessAnalyzer)  
+INFO  Opening existing project: C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_project\ubootproj (HeadlessAnalyzer)  
+INFO  Opening project: C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_project\ubootproj (HeadlessProject)  
+INFO  REPORT: Processing project file: /uboot.bin (HeadlessAnalyzer)  
+INFO  REPORT: Execute script: TraceBootrkp.java  (HeadlessAnalyzer)  
+INFO  SCRIPT: C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_scripts\TraceBootrkp.java (HeadlessAnalyzer)  
+INFO  TraceBootrkp.java> ========================================================= (GhidraScript)  
+INFO  TraceBootrkp.java> do_bootrkp @ VA 0x208ab0 (GhidraScript)  
+INFO  TraceBootrkp.java> ========================================================= (GhidraScript)  
+INFO  TraceBootrkp.java>   function @ 00208ab0 -> FUN_00208ab0 (GhidraScript)  
+INFO  TraceBootrkp.java> --- FUN_00208ab0 @ 00208ab0 --- (GhidraScript)  
+INFO  TraceBootrkp.java> 
+bool FUN_00208ab0(void)
+
+{
+  uint uVar1;
+  int iVar2;
+  int iVar3;
+  int iVar4;
+  long lVar5;
+  undefined8 uVar6;
+  undefined8 uVar7;
+  long lVar8;
+  char *pcVar9;
+  long extraout_x18;
+  undefined1 local_171;
+  undefined8 local_170;
+  undefined8 uStack_168;
+  undefined8 local_160;
+  undefined4 local_158;
+  undefined2 local_154;
+  undefined1 auStack_150 [64];
+  undefined1 auStack_110 [24];
+  undefined1 auStack_f8 [112];
+  undefined1 auStack_88 [136];
+  
+  lVar5 = FUN_00202ce0();
+  if (lVar5 == 0) {
+    FUN_0029acbc(s__s__dev_desc_is_NULL__002b6d79 + 4);
+    return true;
+  }
+  iVar2 = FUN_0022a268(lVar5,&DAT_002c0e27,auStack_110);
+  if (iVar2 < 0) {
+    FUN_0029acbc(s_Could_not_find_misc_partition_002b924b);
+  }
+  else {
+    FUN_00228fa8(lVar5,auStack_110);
+  }
+  local_170 = 0;
+  uStack_168 = 0;
+  local_154 = 0;
+  local_171 = 0;
+  local_160 = 0;
+  local_158 = 0;
+  iVar2 = FUN_00228c08(&local_171);
+  if (iVar2 == 0) {
+    FUN_0029ab88(&local_170,0x1e,s_androidboot_oem_unlocked__d_002b9294,local_171);
+    FUN_00214268(s_andr_bootargs_002b6be6 + 5,&local_170);
+  }
+  else {
+    FUN_0029acbc(s_Failed_to_read_oem_unlock_status_002b926a,iVar2);
+  }
+  iVar2 = FUN_002026c8();
+  if (iVar2 == 1) {
+    pcVar9 = s_FAILCannot_set_boot_recovery_002b7c06 + 0x14;
+  }
+  else {
+    pcVar9 = &DAT_002ca68a;
+  }
+  iVar2 = FUN_0022a268(lVar5,pcVar9,auStack_110);
+  if (iVar2 < 0) {
+    FUN_0029acbc(s_Could_not_find__s_part_002b92b0,auStack_f8);
+    return true;
+  }
+  FUN_0029acbc(s____Booting_Rockchip_Format_Image_002b92c8);
+  uVar6 = FUN_002142d0(s_ramdisk_addr_r_002b6cd1,0x10,0);
+  uVar7 = FUN_002142d0(s_kernel_addr_r_002b6cc3,0x10,0);
+  lVar8 = FUN_002142d0(s_fdt_addr_r_002b75cf,0x10,0);
+  iVar2 = FUN_0022a268(lVar5,s_sync_kernel_002c62dc + 5,auStack_88);
+  if (iVar2 < 0) {
+    pcVar9 = s_Could_not_find_kernel_partition__002b92eb;
+  }
+  else {
+    iVar3 = FUN_002089b8(lVar5,auStack_88,uVar7);
+    if (iVar3 < 0) {
+      pcVar9 = s_Failed_to_read_kernel_image__ret_002b9314;
+    }
+    else {
+      iVar4 = FUN_002089b8(lVar5,auStack_110,uVar6);
+      if (iVar4 < 0) {
+        iVar4 = 0;
+      }
+      if ((*(long *)(extraout_x18 + 0xc0) == lVar8) || (iVar2 = FUN_002032f4(lVar8), -1 < iVar2)) {
+        FUN_00213594(s_bootm_no_reloc_002b73ed,&DAT_002c18db);
+        uVar1 = (*(uint *)(lVar8 + 4) & 0xff00ff00) >> 8 | (*(uint *)(lVar8 + 4) & 0xff00ff) << 8;
+        FUN_0029acbc(s_fdt___0x_08lx__0x_08x__002b9355,lVar8,uVar1 >> 0x10 | uVar1 << 0x10);
+        FUN_0029acbc(s_kernel___0x_08lx__0x_08x__002b936e,uVar7,iVar3);
+        FUN_0029acbc(s_ramdisk___0x_08lx__0x_08x__002b938b,uVar6,iVar4);
+        FUN_0029ab88(auStack_150,0x40,s_booti_0x_lx_0x_lx_0x_x_0x_lx_002b93a8,uVar7,uVar6,iVar4,
+                     lVar8);
+        FUN_00227608(auStack_150,0);
+        iVar2 = 0;
+        goto LAB_00208c48;
+      }
+      pcVar9 = s_Failed_to_read_fdt__ret__d_002b9339;
+    }
+  }
+  FUN_0029acbc(pcVar9,iVar2);
+  iVar2 = -0x16;
+LAB_00208c48:
+  return iVar2 != 0;
+}
+
+ (GhidraScript)  
+INFO  TraceBootrkp.java> 
+========================================================= (GhidraScript)  
+INFO  TraceBootrkp.java> Full call graph walk, depth<=5, flagging keyword hits and smoking-gun hits (GhidraScript)  
+INFO  TraceBootrkp.java> ========================================================= (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_00208ab0 @ 00208ab0 depth=0 size=664 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_00213594 @ 00213594 depth=1 size=88 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_002133b0 @ 002133b0 depth=2 size=440 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_00297640 @ 00297640 depth=3 size=240 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_00296de4 @ 00296de4 depth=4 size=100 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_0021ead0 @ 0021ead0 depth=5 size=560 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_00297234 @ 00297234 depth=4 size=1036 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_0029915c @ 0029915c depth=5 size=40 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_0028204c @ 0028204c depth=5 size=188 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_002992c0 @ 002992c0 depth=5 size=76 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_002823dc @ 002823dc depth=5 size=200 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_00299204 @ 00299204 depth=5 size=28 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_0021ed00 @ 0021ed00 depth=3 size=1632 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_0021e964 @ 0021e964 depth=4 size=116 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_0029943c @ 0029943c depth=5 size=112 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_0021fa68 @ 0021fa68 depth=4 size=56 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_0029acbc @ 0029acbc depth=3 size=180 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_0021e37c @ 0021e37c depth=4 size=48 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_0021e33c @ 0021e33c depth=5 size=64 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_0029ab10 @ 0029ab10 depth=4 size=120 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_0029a0d8 @ 0029a0d8 depth=5 size=2616 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_002994ac @ 002994ac depth=5 size=112 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_002991bc @ 002991bc depth=3 size=40 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_002089b8 @ 002089b8 depth=1 size=248 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_0023deec @ 0023deec depth=2 size=32 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_0028b550 @ 0028b550 depth=2 size=64 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_0028ab00 @ 0028ab00 depth=3 size=1216 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_0028aae0 @ 0028aae0 depth=4 size=32 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_0028aa8c @ 0028aa8c depth=4 size=76 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_0028a984 @ 0028a984 depth=5 size=264 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_002990b0 @ 002990b0 depth=4 size=8 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_00299038 @ 00299038 depth=5 size=120 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_0028a8ac @ 0028a8ac depth=4 size=208 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_0028a724 @ 0028a724 depth=5 size=364 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_0028afc0 @ 0028afc0 depth=3 size=740 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_002142d0 @ 002142d0 depth=1 size=64 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_0029af2c @ 0029af2c depth=2 size=136 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_0029ae80 @ 0029ae80 depth=3 size=172 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_002139d0 @ 002139d0 depth=2 size=120 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_002138e8 @ 002138e8 depth=3 size=232 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_00281af0 @ 00281af0 depth=4 size=84 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_00281aa0 @ 00281aa0 depth=5 size=80 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_0021386c @ 0021386c depth=4 size=124 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_00228c08 @ 00228c08 depth=1 size=92 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_00228bc4 @ 00228bc4 depth=2 size=68 (GhidraScript)  
+INFO  TraceBootrkp.java> [MATCH] FUN_00228a54 @ 00228a54 depth=3 size=368 (GhidraScript)  
+INFO  TraceBootrkp.java> 
+undefined4 FUN_00228a54(undefined8 param_1,ulong param_2,undefined8 param_3,ulong param_4)
+
+{
+  undefined4 uVar1;
+  long lVar2;
+  undefined1 auStack_258 [4];
+  undefined1 auStack_254 [4];
+  undefined8 local_250;
+  undefined8 local_248;
+  undefined8 local_240;
+  ulong local_238;
+  undefined8 local_230;
+  undefined8 uStack_228;
+  undefined8 local_220;
+  ulong local_218;
+  undefined8 local_210;
+  undefined8 uStack_208;
+  undefined1 auStack_200 [4];
+  undefined4 local_1fc;
+  undefined8 local_1f8;
+  ulong local_1f0;
+  undefined8 local_1e0;
+  ulong local_1d8;
+  undefined1 auStack_108 [264];
+  
+  local_250 = DAT_002a05b8;
+  local_248 = DAT_002a05c0;
+  FUN_0029943c(auStack_200,0,0xf8);
+  lVar2 = FUN_00202ce0();
+  if (lVar2 == 0) {
+    uVar1 = 0x10000;
+    FUN_0029acbc(s__s__dev_desc_is_NULL__002b6d79,s_write_to_keymaster_002a1000);
+  }
+  else {
+    FUN_0028f100();
+    FUN_0028f1b8(0,auStack_108);
+    local_1fc = 1;
+    local_1f8 = (ulong)local_1f8._4_4_ << 0x20;
+    FUN_0028f2a0(auStack_108,auStack_258,&local_250,0,0,auStack_200,auStack_254);
+    local_240 = 0;
+    local_230 = 0;
+    uStack_228 = 0;
+    local_238 = param_2 & 0xffffffff;
+    FUN_0028f200(auStack_108,&local_240);
+    FUN_002994ac(local_240,param_1,local_238);
+    local_220 = 0;
+    local_210 = 0;
+    uStack_208 = 0;
+    local_218 = param_4 & 0xffffffff;
+    FUN_0028f200(auStack_108,&local_220);
+    FUN_002994ac(local_220,param_3,local_218);
+    local_1f8 = local_240;
+    local_1f0 = local_238;
+    local_1e0 = local_220;
+    local_1d8 = local_218;
+    local_1fc = 0x75;
+    uVar1 = FUN_0028f378(auStack_258,1,auStack_200,auStack_254);
+    FUN_0028f260(&local_240);
+    FUN_0028f260(&local_220);
+    FUN_0028f354(auStack_258);
+    FUN_0028f1f8(auStack_108);
+  }
+  return uVar1;
+}
+
+ (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_0028f100 @ 0028f100 depth=4 size=184 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_0029ae04 @ 0029ae04 depth=5 size=124 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_0029077c @ 0029077c depth=5 size=100 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_0028747c @ 0028747c depth=5 size=44 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_0028f0c4 @ 0028f0c4 depth=5 size=52 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_0028f2a0 @ 0028f2a0 depth=4 size=180 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_0028fdec @ 0028fdec depth=5 size=356 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_0028f354 @ 0028f354 depth=4 size=36 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_0028ff50 @ 0028ff50 depth=5 size=140 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_0028f1b8 @ 0028f1b8 depth=4 size=64 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_0028f260 @ 0028f260 depth=4 size=64 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] thunk_FUN_0028f02c @ 0028f0fc depth=5 size=4 (GhidraScript)  
+INFO  TraceBootrkp.java> [MATCH] FUN_00202ce0 @ 00202ce0 depth=4 size=700 (GhidraScript)  
+INFO  TraceBootrkp.java> 
+long FUN_00202ce0(void)
+
+{
+  int iVar1;
+  undefined4 uVar2;
+  int iVar3;
+  char *pcVar4;
+  long lVar5;
+  undefined8 uVar6;
+  char *pcVar7;
+  undefined8 auStack_80 [16];
+  
+  if (DAT_002f15c8 != 0) {
+    return DAT_002f15c8;
+  }
+  FUN_00202be0();
+  FUN_0029943c(auStack_80,0,0x80);
+  pcVar4 = (char *)FUN_002139d0(s_devtype_002b73e5);
+  lVar5 = FUN_002142d0(s_rockusb_0__devtype__devnum_002b9a21 + 0x14,10,0);
+  if (pcVar4 == (char *)0x0) {
+    pcVar4 = s_<USB_controller>__<devtype>__<de_002c9b7f + 0x54;
+    FUN_0029acbc(s_Use_emmc_as_default_boot_media_002c47de);
+  }
+  iVar1 = FUN_0029915c(pcVar4,s_<USB_controller>__<devtype>__<de_002c9b7f + 0x54);
+  if (iVar1 == 0) {
+    iVar1 = 6;
+    if (lVar5 == 1) {
+      pcVar7 = s_vcc_sd_002c38bf + 4;
+    }
+    else {
+      pcVar7 = &DAT_002c47cb;
+    }
+  }
+  else {
+    iVar1 = FUN_0029915c(pcVar4,s_rknand_002c47fe);
+    if (iVar1 == 0) {
+      iVar1 = 0xc;
+    }
+    else {
+      iVar1 = FUN_0029915c(pcVar4,s_spinand_002c4805);
+      if (iVar1 != 0) {
+        iVar1 = FUN_0029915c(pcVar4,s_spinor_002c480d);
+        if (iVar1 == 0) {
+          iVar1 = 0xe;
+          pcVar7 = s_spinor_002c480d + 3;
+        }
+        else {
+          pcVar7 = s_cannot_write_back_original_ramdi_002bd89b + 0x1b;
+          iVar1 = FUN_0029915c(pcVar4,s_cannot_write_back_original_ramdi_002bd89b + 0x1b);
+          if (iVar1 == 0) {
+            iVar1 = 0xf;
+          }
+          else {
+            pcVar7 = &DAT_002c47d0;
+            iVar1 = FUN_0029915c(pcVar4,&DAT_002c47d0);
+            if (iVar1 == 0) {
+              iVar1 = 0x10;
+            }
+            else {
+              pcVar7 = &DAT_002c47d4;
+              iVar1 = FUN_0029915c(pcVar4,&DAT_002c47d4);
+              if (iVar1 == 0) {
+                iVar1 = 2;
+              }
+              else {
+                pcVar7 = &DAT_002c47d9;
+                iVar3 = FUN_0029915c(pcVar4,&DAT_002c47d9);
+                if (iVar3 != 0) {
+                  pcVar7 = (char *)0x0;
+                }
+                iVar1 = 0;
+                if (iVar3 == 0) {
+                  iVar1 = 0xb;
+                }
+              }
+            }
+          }
+        }
+        goto LAB_00202d7c;
+      }
+      iVar1 = 0xd;
+    }
+    pcVar7 = s_allwinner_sun4i_a10_nand_002ce4f4 + 0x14;
+  }
+LAB_00202d7c:
+  if ((DAT_002f15c4 == 0) && (pcVar7 != (char *)0x0)) {
+    DAT_002f15c4 = 1;
+    lVar5 = FUN_00213b88(s_andr_bootargs_002b6be6 + 5,s_androidboot_mode_charger_002c4814);
+    if (lVar5 == 0) {
+      pcVar4 = s_storagemedia__s_androidboot_stor_002c4859;
+    }
+    else {
+      pcVar4 = s_storagemedia__s_androidboot_stor_002c482d;
+    }
+    FUN_0029ab88(auStack_80,0x80,pcVar4,pcVar7,pcVar7);
+    FUN_00214268(s_andr_bootargs_002b6be6 + 5,auStack_80);
+  }
+  uVar2 = FUN_002142d0(s_rockusb_0__devtype__devnum_002b9a21 + 0x14,10,0);
+  lVar5 = FUN_0023de8c(iVar1,uVar2);
+  DAT_002f15c8 = lVar5;
+  if (lVar5 == 0) {
+    FUN_0029acbc(s__s__Can_t_find_dev_desc__002c489e,s_rockchip_get_bootdev_002a1820);
+  }
+  else {
+    if (iVar1 == 6) {
+      FUN_002994ac(auStack_80,&PTR_s_Legacy_002a0438,0x60);
+      lVar5 = FUN_002406e8(uVar2);
+      FUN_0029acbc(s_MMC_d___s___dMhz_002c48b8,uVar2,auStack_80[*(uint *)(lVar5 + 0x24)],
+                   *(uint *)(lVar5 + 0x28) / 1000000);
+    }
+    uVar6 = FUN_00229c90(DAT_002f15c8);
+    FUN_0029acbc(s_PartType___s_002c48ca,uVar6);
+    lVar5 = DAT_002f15c8;
+  }
+  return lVar5;
+}
+
+ (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_00229c90 @ 00229c90 depth=5 size=64 (GhidraScript)  
+INFO  TraceBootrkp.java> [MATCH] FUN_002406e8 @ 002406e8 depth=5 size=84 (GhidraScript)  
+INFO  TraceBootrkp.java> 
+undefined8 FUN_002406e8(undefined4 param_1)
+
+{
+  int iVar1;
+  undefined8 uVar2;
+  undefined8 local_8;
+  
+  iVar1 = FUN_0023ddb8(6,param_1,&local_8);
+  if (iVar1 == 0) {
+    FUN_002307f4(local_8);
+    uVar2 = FUN_0024055c();
+  }
+  else {
+    FUN_0029acbc(s_MMC_Device__d_not_found_002bdf3f,param_1);
+    uVar2 = 0;
+  }
+  return uVar2;
+}
+
+ (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_00213b88 @ 00213b88 depth=5 size=340 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_0029ab88 @ 0029ab88 depth=5 size=124 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_00214268 @ 00214268 depth=5 size=8 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_0023de8c @ 0023de8c depth=5 size=44 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_00202be0 @ 00202be0 depth=5 size=256 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_0028f1f8 @ 0028f1f8 depth=4 size=8 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_0028f200 @ 0028f200 depth=4 size=96 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] thunk_FUN_0028ef1c @ 0028f0f8 depth=5 size=4 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_0028f378 @ 0028f378 depth=4 size=132 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_0028ffdc @ 0028ffdc depth=5 size=216 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_002288e8 @ 002288e8 depth=2 size=364 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_0022a268 @ 0022a268 depth=1 size=8 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_002297c8 @ 002297c8 depth=2 size=216 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_002990b8 @ 002990b8 depth=3 size=24 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_0022971c @ 0022971c depth=3 size=172 (GhidraScript)  
+INFO  TraceBootrkp.java> [MATCH] FUN_0022bc24 @ 0022bc24 depth=4 size=504 (GhidraScript)  
+INFO  TraceBootrkp.java> 
+int FUN_0022bc24(long param_1)
+
+{
+  ulong uVar1;
+  int iVar2;
+  int iVar3;
+  int iVar4;
+  long lVar5;
+  undefined8 uVar6;
+  char *pcVar7;
+  ulong uVar8;
+  undefined8 local_10;
+  undefined8 local_8;
+  
+  uVar8 = *(ulong *)(param_1 + 0x18);
+  uVar1 = 0;
+  if (uVar8 != 0) {
+    uVar1 = 0x1ff / uVar8;
+  }
+  lVar5 = FUN_0023deec(param_1,0,1,
+                       &stack0xffffffffffffffc0 +
+                       -((uVar8 + uVar1 * uVar8 + 0x3f & 0xffffffffffffffc0) + 0x40));
+  if (lVar5 != 1) {
+    return -1;
+  }
+  local_10 = 0;
+  local_8 = 0;
+  lVar5 = FUN_0021f8c0(0x40,*(undefined8 *)(param_1 + 0x18));
+  uVar6 = FUN_0021f8c0(0x40,*(undefined8 *)(param_1 + 0x18));
+  iVar2 = FUN_0022ad0c(param_1,1,lVar5,&local_10);
+  iVar3 = FUN_0022ad0c(param_1,*(long *)(param_1 + 0x10) + -1,uVar6,&local_8);
+  if ((iVar2 == 1) && (*(long *)(lVar5 + 0x30) == 0xffffffdd)) {
+    iVar4 = FUN_0022b784(param_1,local_10,lVar5,0,1);
+    iVar3 = 0;
+    if (iVar4 != 0) {
+      FUN_0029acbc(s_Primary_GPT_repair_fail__002c21e5);
+      iVar3 = 0;
+    }
+  }
+  if (iVar3 == 0 && iVar2 == 1) {
+    iVar3 = FUN_0022b784(param_1,local_10,lVar5,1,0);
+    if (iVar3 != 0) {
+      pcVar7 = s_Backup_GPT_repair_fail__002c21ff;
+LAB_0022bdc8:
+      FUN_0029acbc(pcVar7);
+    }
+  }
+  else {
+    if (iVar2 != 0 || iVar3 != 1) {
+      iVar3 = -(uint)(iVar3 == 0 && iVar2 == 0);
+      goto LAB_0022bd7c;
+    }
+    iVar3 = FUN_0022b784(param_1,local_8,uVar6,0,1);
+    if (iVar3 != 0) {
+      pcVar7 = s_Primary_GPT_repair_fail__002c21e5;
+      goto LAB_0022bdc8;
+    }
+  }
+  iVar3 = 0;
+LAB_0022bd7c:
+  FUN_0021ead0(local_10);
+  local_10 = 0;
+  FUN_0021ead0(lVar5);
+  FUN_0021ead0(local_8);
+  local_8 = 0;
+  FUN_0021ead0(uVar6);
+  return iVar3;
+}
+
+ (GhidraScript)  
+INFO  TraceBootrkp.java> [MATCH] FUN_0022ad0c @ 0022ad0c depth=5 size=652 (GhidraScript)  
+INFO  TraceBootrkp.java> 
+undefined4 FUN_0022ad0c(long param_1,undefined8 param_2,long param_3,long *param_4)
+
+{
+  uint uVar1;
+  ulong uVar2;
+  int iVar3;
+  long lVar4;
+  char *pcVar5;
+  long lVar6;
+  ulong uVar7;
+  ulong uVar8;
+  undefined8 local_10;
+  undefined8 uStack_8;
+  
+  if (param_1 == 0 || param_3 == 0) {
+    FUN_0029acbc(s__s__Invalid_Argument_s__002c0579,s_is_gpt_valid_002a1420);
+    return 0;
+  }
+  if (*param_4 != 0) {
+    return 1;
+  }
+  lVar6 = -(*(long *)(param_1 + 0x18) * 0x200 + 0x40);
+  lVar4 = FUN_0023deec(param_1,0,1,&stack0xffffffffffffffc0 + lVar6);
+  if (lVar4 != 1) {
+    pcVar5 = s_____ERROR__Can_t_read_MBR_header_002c0592;
+LAB_0022adc0:
+    FUN_0029acbc(pcVar5);
+    return 0;
+  }
+  lVar4 = FUN_0023deec(param_1,param_2,1,param_3);
+  if (lVar4 != 1) {
+    pcVar5 = s_____ERROR__Can_t_read_GPT_header_002c05b8;
+    goto LAB_0022adc0;
+  }
+  iVar3 = FUN_0022aab8(param_3,param_2,*(undefined8 *)(param_1 + 0x10));
+  if (iVar3 != 0) {
+    return 0;
+  }
+  if (*(int *)(param_1 + 0x6c) == 0) {
+    local_10 = 0;
+    uStack_8 = 0;
+    iVar3 = FUN_00299568(param_3 + 0x38,&local_10,0x10);
+    if (iVar3 == 0) {
+      iVar3 = *(int *)(&stack0x00000178 + lVar6);
+      if (iVar3 != 0) {
+        *(undefined4 *)(param_1 + 0x6c) = 1;
+        *(int *)(param_1 + 0x70) = iVar3;
+      }
+    }
+    else {
+      *(undefined4 *)(param_1 + 0x6c) = 2;
+      FUN_002994ac(param_1 + 0x70,param_3 + 0x38,0x10);
+    }
+  }
+  uVar1 = *(int *)(param_3 + 0x50) * *(int *)(param_3 + 0x54);
+  uVar8 = (ulong)uVar1;
+  if (uVar1 == 0) {
+    lVar6 = 0;
+  }
+  else {
+    uVar7 = *(ulong *)(param_1 + 0x18);
+    uVar2 = 0;
+    if (uVar7 != 0) {
+      uVar2 = (uVar8 - 1) / uVar7;
+    }
+    lVar6 = FUN_0021f8c0(0x40,uVar7 + uVar2 * uVar7);
+  }
+  if (uVar8 == 0 || lVar6 == 0) {
+    FUN_0029acbc(s__s__ERROR__Can_t_allocate___lX_b_002c05de,s_alloc_read_gpt_entries_002a1430,uVar8
+                );
+  }
+  else {
+    uVar2 = 0;
+    if (*(ulong *)(param_1 + 0x18) != 0) {
+      uVar2 = (uVar8 - 1) / *(ulong *)(param_1 + 0x18);
+    }
+    lVar4 = FUN_0023deec(param_1,CONCAT17(*(undefined1 *)(param_3 + 0x4f),
+                                          CONCAT16(*(undefined1 *)(param_3 + 0x4e),
+                                                   CONCAT15(*(undefined1 *)(param_3 + 0x4d),
+                                                            CONCAT14(*(undefined1 *)(param_3 + 0x4c)
+                                                                     ,CONCAT13(*(undefined1 *)
+                                                                                (param_3 + 0x4b),
+                                                                               *(undefined3 *)
+                                                                                (param_3 + 0x48)))))
+                                         ),uVar2 + 1,lVar6);
+    if (uVar2 + 1 == lVar4) goto LAB_0022aecc;
+    FUN_0029acbc(s_____ERROR__Can_t_read_GPT_Entrie_002c0614);
+    FUN_0021ead0(lVar6);
+  }
+  lVar6 = 0;
+LAB_0022aecc:
+  *param_4 = lVar6;
+  if (lVar6 == 0) {
+    FUN_0029acbc(s_GPT__Failed_to_allocate_memory_f_002c063b);
+    return 0;
+  }
+  iVar3 = FUN_0022aa10(param_3,lVar6);
+  if (iVar3 == 0) {
+    return 1;
+  }
+  FUN_0021ead0(*param_4);
+  *param_4 = 0;
+  return 0;
+}
+
+ (GhidraScript)  
+INFO  TraceBootrkp.java> [MATCH] FUN_0022b784 @ 0022b784 depth=5 size=1184 (GhidraScript)  
+INFO  TraceBootrkp.java> 
+undefined8 FUN_0022b784(long param_1,undefined8 param_2,long param_3,int param_4,int param_5)
+
+{
+  ulong uVar1;
+  undefined4 uVar2;
+  char *pcVar3;
+  long lVar4;
+  long lVar5;
+  long lVar6;
+  
+  if (param_4 == 1 && param_5 == 1) {
+    return 0;
+  }
+  if (param_4 == 0 && param_5 == 0) {
+    return 0xffffffff;
+  }
+  if (param_4 == 1 && param_5 == 0) {
+    *(undefined1 *)(param_3 + 0x10) = 0;
+    *(undefined1 *)(param_3 + 0x11) = 0;
+    *(undefined1 *)(param_3 + 0x12) = 0;
+    lVar4 = *(long *)(param_1 + 0x10);
+    *(undefined1 *)(param_3 + 0x13) = 0;
+    lVar5 = lVar4 + -1;
+    *(char *)(param_3 + 0x18) = (char)lVar5;
+    *(undefined1 *)(param_3 + 0x21) = 0;
+    *(char *)(param_3 + 0x19) = (char)((ulong)lVar5 >> 8);
+    *(char *)(param_3 + 0x1a) = (char)((ulong)lVar5 >> 0x10);
+    *(char *)(param_3 + 0x1b) = (char)((ulong)lVar5 >> 0x18);
+    *(char *)(param_3 + 0x1c) = (char)((ulong)lVar5 >> 0x20);
+    *(char *)(param_3 + 0x1d) = (char)((ulong)lVar5 >> 0x28);
+    *(char *)(param_3 + 0x1f) = (char)((ulong)lVar5 >> 0x38);
+    *(undefined1 *)(param_3 + 0x20) = 1;
+    lVar6 = lVar4 + -0x21;
+    *(char *)(param_3 + 0x1e) = (char)((ulong)lVar5 >> 0x30);
+    lVar4 = lVar4 + -0x22;
+    *(char *)(param_3 + 0x49) = (char)((ulong)lVar6 >> 8);
+    *(char *)(param_3 + 0x4a) = (char)((ulong)lVar6 >> 0x10);
+    *(char *)(param_3 + 0x4b) = (char)((ulong)lVar6 >> 0x18);
+    *(char *)(param_3 + 0x4c) = (char)((ulong)lVar6 >> 0x20);
+    *(char *)(param_3 + 0x48) = (char)lVar6;
+    *(char *)(param_3 + 0x4d) = (char)((ulong)lVar6 >> 0x28);
+    *(char *)(param_3 + 0x4f) = (char)((ulong)lVar6 >> 0x38);
+    *(char *)(param_3 + 0x31) = (char)((ulong)lVar4 >> 8);
+    *(char *)(param_3 + 0x4e) = (char)((ulong)lVar6 >> 0x30);
+    *(char *)(param_3 + 0x30) = (char)lVar4;
+    *(char *)(param_3 + 0x32) = (char)((ulong)lVar4 >> 0x10);
+    *(undefined1 *)(param_3 + 0x22) = 0;
+    *(undefined1 *)(param_3 + 0x23) = 0;
+    *(undefined1 *)(param_3 + 0x24) = 0;
+    *(undefined1 *)(param_3 + 0x25) = 0;
+    *(undefined1 *)(param_3 + 0x26) = 0;
+    *(undefined1 *)(param_3 + 0x27) = 0;
+    *(char *)(param_3 + 0x33) = (char)((ulong)lVar4 >> 0x18);
+    *(char *)(param_3 + 0x34) = (char)((ulong)lVar4 >> 0x20);
+    *(char *)(param_3 + 0x35) = (char)((ulong)lVar4 >> 0x28);
+    *(char *)(param_3 + 0x36) = (char)((ulong)lVar4 >> 0x30);
+    *(char *)(param_3 + 0x37) = (char)((ulong)lVar4 >> 0x38);
+    FUN_0022b60c();
+    uVar2 = FUN_00298288(0,param_3,*(undefined4 *)(param_3 + 0xc));
+    *(char *)(param_3 + 0x11) = (char)((uint)uVar2 >> 8);
+    *(char *)(param_3 + 0x10) = (char)uVar2;
+    *(char *)(param_3 + 0x12) = (char)((uint)uVar2 >> 0x10);
+    *(char *)(param_3 + 0x13) = (char)((uint)uVar2 >> 0x18);
+    lVar4 = FUN_0023df60(param_1,*(long *)(param_1 + 0x10) + -1,1,param_3);
+    if (lVar4 != 1) {
+LAB_0022b934:
+      pcVar3 = s_____ERROR__Can_t_write_GPT_heade_002c1ec8;
+      goto LAB_0022b93c;
+    }
+    uVar1 = 0;
+    if (*(ulong *)(param_1 + 0x18) != 0) {
+      uVar1 = ((ulong)(uint)(*(int *)(param_3 + 0x50) * *(int *)(param_3 + 0x54)) - 1) /
+              *(ulong *)(param_1 + 0x18);
+    }
+    lVar4 = FUN_0023df60(param_1,CONCAT17(*(undefined1 *)(param_3 + 0x4f),
+                                          CONCAT16(*(undefined1 *)(param_3 + 0x4e),
+                                                   CONCAT15(*(undefined1 *)(param_3 + 0x4d),
+                                                            CONCAT14(*(undefined1 *)(param_3 + 0x4c)
+                                                                     ,CONCAT13(*(undefined1 *)
+                                                                                (param_3 + 0x4b),
+                                                                               CONCAT12(*(undefined1
+                                                                                          *)(param_3
+                                                                                            + 0x4a),
+                                                                                        CONCAT11(*(
+                                                  undefined1 *)(param_3 + 0x49),
+                                                  *(undefined1 *)(param_3 + 0x48)))))))),uVar1 + 1,
+                         param_2);
+    if (uVar1 + 1 == lVar4) {
+      pcVar3 = s_Repair_the_backup_gpt_table_OK__002c1f1c;
+LAB_0022ba08:
+      FUN_0029acbc(pcVar3);
+      return 0;
+    }
+  }
+  else {
+    if (param_5 != 1 || param_4 != 0) {
+      return 0;
+    }
+    *(undefined1 *)(param_3 + 0x18) = 1;
+    *(undefined1 *)(param_3 + 0x10) = 0;
+    *(undefined1 *)(param_3 + 0x11) = 0;
+    *(undefined1 *)(param_3 + 0x12) = 0;
+    lVar4 = *(long *)(param_1 + 0x10);
+    *(undefined1 *)(param_3 + 0x13) = 0;
+    lVar5 = lVar4 + -1;
+    lVar4 = lVar4 + -0x22;
+    *(char *)(param_3 + 0x20) = (char)lVar5;
+    *(char *)(param_3 + 0x21) = (char)((ulong)lVar5 >> 8);
+    *(char *)(param_3 + 0x22) = (char)((ulong)lVar5 >> 0x10);
+    *(char *)(param_3 + 0x23) = (char)((ulong)lVar5 >> 0x18);
+    *(char *)(param_3 + 0x24) = (char)((ulong)lVar5 >> 0x20);
+    *(char *)(param_3 + 0x25) = (char)((ulong)lVar5 >> 0x28);
+    *(char *)(param_3 + 0x27) = (char)((ulong)lVar5 >> 0x38);
+    *(undefined1 *)(param_3 + 0x48) = 2;
+    *(char *)(param_3 + 0x31) = (char)((ulong)lVar4 >> 8);
+    *(char *)(param_3 + 0x26) = (char)((ulong)lVar5 >> 0x30);
+    *(char *)(param_3 + 0x30) = (char)lVar4;
+    *(char *)(param_3 + 0x32) = (char)((ulong)lVar4 >> 0x10);
+    *(undefined1 *)(param_3 + 0x19) = 0;
+    *(undefined1 *)(param_3 + 0x1a) = 0;
+    *(undefined1 *)(param_3 + 0x1b) = 0;
+    *(undefined1 *)(param_3 + 0x1c) = 0;
+    *(undefined1 *)(param_3 + 0x1d) = 0;
+    *(undefined1 *)(param_3 + 0x1e) = 0;
+    *(undefined1 *)(param_3 + 0x1f) = 0;
+    *(undefined1 *)(param_3 + 0x49) = 0;
+    *(undefined1 *)(param_3 + 0x4a) = 0;
+    *(undefined1 *)(param_3 + 0x4b) = 0;
+    *(undefined1 *)(param_3 + 0x4c) = 0;
+    *(undefined1 *)(param_3 + 0x4d) = 0;
+    *(undefined1 *)(param_3 + 0x4e) = 0;
+    *(undefined1 *)(param_3 + 0x4f) = 0;
+    *(char *)(param_3 + 0x33) = (char)((ulong)lVar4 >> 0x18);
+    *(char *)(param_3 + 0x34) = (char)((ulong)lVar4 >> 0x20);
+    *(char *)(param_3 + 0x35) = (char)((ulong)lVar4 >> 0x28);
+    *(char *)(param_3 + 0x36) = (char)((ulong)lVar4 >> 0x30);
+    *(char *)(param_3 + 0x37) = (char)((ulong)lVar4 >> 0x38);
+    FUN_0022b60c();
+    uVar2 = FUN_00298288(0,param_3,*(undefined4 *)(param_3 + 0xc));
+    *(char *)(param_3 + 0x10) = (char)uVar2;
+    *(char *)(param_3 + 0x11) = (char)((uint)uVar2 >> 8);
+    *(char *)(param_3 + 0x12) = (char)((uint)uVar2 >> 0x10);
+    *(char *)(param_3 + 0x13) = (char)((uint)uVar2 >> 0x18);
+    lVar4 = FUN_0023df60(param_1,1,1,param_3);
+    if (lVar4 != 1) goto LAB_0022b934;
+    uVar1 = 0;
+    if (*(ulong *)(param_1 + 0x18) != 0) {
+      uVar1 = ((ulong)(uint)(*(int *)(param_3 + 0x50) * *(int *)(param_3 + 0x54)) - 1) /
+              *(ulong *)(param_1 + 0x18);
+    }
+    lVar4 = FUN_0023df60(param_1,CONCAT17(*(undefined1 *)(param_3 + 0x4f),
+                                          CONCAT16(*(undefined1 *)(param_3 + 0x4e),
+                                                   CONCAT15(*(undefined1 *)(param_3 + 0x4d),
+                                                            CONCAT14(*(undefined1 *)(param_3 + 0x4c)
+                                                                     ,CONCAT13(*(undefined1 *)
+                                                                                (param_3 + 0x4b),
+                                                                               CONCAT12(*(undefined1
+                                                                                          *)(param_3
+                                                                                            + 0x4a),
+                                                                                        CONCAT11(*(
+                                                  undefined1 *)(param_3 + 0x49),
+                                                  *(undefined1 *)(param_3 + 0x48)))))))),uVar1 + 1,
+                         param_2);
+    if (uVar1 + 1 == lVar4) {
+      pcVar3 = s_Repair_the_Primary_gpt_table_OK__002c1f3d;
+      goto LAB_0022ba08;
+    }
+  }
+  pcVar3 = s_____ERROR__Can_t_write_entry_par_002c1eef;
+LAB_0022b93c:
+  FUN_0029acbc(pcVar3);
+  return 0xffffffff;
+}
+
+ (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_0021f8c0 @ 0021f8c0 depth=5 size=400 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_00227608 @ 00227608 depth=1 size=20 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_00215628 @ 00215628 depth=2 size=244 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_00215e48 @ 00215e48 depth=3 size=1660 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_00214794 @ 00214794 depth=4 size=24 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_0021511c @ 0021511c depth=4 size=12 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_00214a4c @ 00214a4c depth=4 size=656 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_002147f4 @ 002147f4 depth=5 size=12 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_002149fc @ 002149fc depth=5 size=80 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_0021f444 @ 0021f444 depth=5 size=1148 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_0021491c @ 0021491c depth=5 size=36 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_00214968 @ 00214968 depth=5 size=148 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_002148f4 @ 002148f4 depth=5 size=40 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_002150c4 @ 002150c4 depth=4 size=88 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_00215030 @ 00215030 depth=5 size=148 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_0021571c @ 0021571c depth=4 size=1836 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_002151c4 @ 002151c4 depth=5 size=420 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_00215128 @ 00215128 depth=5 size=156 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_0021e478 @ 0021e478 depth=5 size=88 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_00214de4 @ 00214de4 depth=5 size=76 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_0021e5b8 @ 0021e5b8 depth=5 size=12 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_00215368 @ 00215368 depth=5 size=704 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_002990f0 @ 002990f0 depth=5 size=44 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_0029911c @ 0029911c depth=5 size=64 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_00228078 @ 00228078 depth=5 size=268 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_00214940 @ 00214940 depth=5 size=40 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_00214800 @ 00214800 depth=4 size=244 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_002147d4 @ 002147d4 depth=4 size=32 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_002032f4 @ 002032f4 depth=1 size=396 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_002874a8 @ 002874a8 depth=2 size=116 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_00206e68 @ 00206e68 depth=2 size=8 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_00202b44 @ 00202b44 depth=2 size=104 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_00234cc0 @ 00234cc0 depth=3 size=120 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_00234b94 @ 00234b94 depth=4 size=52 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_00234bc8 @ 00234bc8 depth=4 size=44 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_00234bf4 @ 00234bf4 depth=4 size=204 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_00234b1c @ 00234b1c depth=3 size=120 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_002312d4 @ 002312d4 depth=4 size=296 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_00230ad0 @ 00230ad0 depth=5 size=72 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_0021f360 @ 0021f360 depth=5 size=228 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_00231288 @ 00231288 depth=5 size=76 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_002319c4 @ 002319c4 depth=4 size=68 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_00231474 @ 00231474 depth=5 size=72 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_0023171c @ 0023171c depth=5 size=64 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_00231a3c @ 00231a3c depth=4 size=68 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_002314bc @ 002314bc depth=5 size=44 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_00206d30 @ 00206d30 depth=2 size=312 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_00206c3c @ 00206c3c depth=3 size=244 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_00206bc0 @ 00206bc0 depth=4 size=124 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_002067cc @ 002067cc depth=5 size=1012 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_00202bb4 @ 00202bb4 depth=2 size=24 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_00203750 @ 00203750 depth=3 size=2028 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_00218dd4 @ 00218dd4 depth=4 size=20 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_002882fc @ 002882fc depth=5 size=420 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_00289684 @ 00289684 depth=4 size=76 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_00289610 @ 00289610 depth=5 size=32 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_00289928 @ 00289928 depth=4 size=52 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_0028982c @ 0028982c depth=5 size=252 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_0028935c @ 0028935c depth=4 size=68 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_00289270 @ 00289270 depth=5 size=236 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_00207758 @ 00207758 depth=4 size=152 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_00288074 @ 00288074 depth=5 size=84 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_002877a0 @ 002877a0 depth=4 size=52 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_002876f0 @ 002876f0 depth=5 size=176 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_002893a0 @ 002893a0 depth=4 size=124 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_00287670 @ 00287670 depth=5 size=64 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_00299184 @ 00299184 depth=4 size=56 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_002896d0 @ 002896d0 depth=4 size=120 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_002188bc @ 002188bc depth=4 size=76 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_00287a40 @ 00287a40 depth=5 size=76 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_002184c0 @ 002184c0 depth=5 size=148 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_002880c8 @ 002880c8 depth=4 size=116 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_00287bf0 @ 00287bf0 depth=5 size=96 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_002895c4 @ 002895c4 depth=5 size=76 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_00287e44 @ 00287e44 depth=5 size=108 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_002877d4 @ 002877d4 depth=4 size=92 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_00299568 @ 00299568 depth=2 size=48 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_002233bc @ 002233bc depth=2 size=952 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_0028b6ec @ 0028b6ec depth=3 size=248 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_00221c00 @ 00221c00 depth=3 size=2396 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_0022143c @ 0022143c depth=4 size=20 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_002990d0 @ 002990d0 depth=4 size=32 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_0028b514 @ 0028b514 depth=3 size=60 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_002264f0 @ 002264f0 depth=3 size=120 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_00288aa8 @ 00288aa8 depth=3 size=1632 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_002878fc @ 002878fc depth=4 size=108 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_00288258 @ 00288258 depth=4 size=68 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_0028813c @ 0028813c depth=5 size=284 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_00288650 @ 00288650 depth=4 size=168 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_002885b8 @ 002885b8 depth=5 size=152 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_0028941c @ 0028941c depth=4 size=56 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_00289170 @ 00289170 depth=5 size=100 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_0028897c @ 0028897c depth=4 size=300 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_00289630 @ 00289630 depth=5 size=84 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_00289454 @ 00289454 depth=5 size=56 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_00289748 @ 00289748 depth=4 size=128 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_00299600 @ 00299600 depth=4 size=48 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_00289bf4 @ 00289bf4 depth=4 size=68 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_00289bc0 @ 00289bc0 depth=5 size=52 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_00289b00 @ 00289b00 depth=5 size=192 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_002886f8 @ 002886f8 depth=4 size=424 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_002888a0 @ 002888a0 depth=4 size=220 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_00289c38 @ 00289c38 depth=5 size=132 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_00287f9c @ 00287f9c depth=4 size=216 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_00287d00 @ 00287d00 depth=5 size=324 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_00289990 @ 00289990 depth=4 size=368 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_002264d8 @ 002264d8 depth=3 size=24 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_002233b4 @ 002233b4 depth=3 size=8 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_002026c8 @ 002026c8 depth=3 size=788 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_00202564 @ 00202564 depth=4 size=308 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_0022120c @ 0022120c depth=4 size=32 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_002211fc @ 002211fc depth=5 size=16 (GhidraScript)  
+INFO  TraceBootrkp.java> [MATCH] FUN_00228fa8 @ 00228fa8 depth=1 size=1156 (GhidraScript)  
+INFO  TraceBootrkp.java> 
+undefined8 FUN_00228fa8(long param_1,long *param_2)
+
+{
+  undefined4 uVar1;
+  char cVar2;
+  int iVar3;
+  undefined4 uVar4;
+  char *pcVar5;
+  long lVar6;
+  long lVar7;
+  long lVar8;
+  uint uVar9;
+  undefined4 *puVar10;
+  undefined8 uVar11;
+  undefined1 auStack_103e0 [148];
+  uint uStack_1034c;
+  uint uStack_10348;
+  undefined1 auStack_10344 [4];
+  undefined1 *puStack_10340;
+  long lStack_10338;
+  undefined4 uStack_10330;
+  undefined8 uStack_10328;
+  undefined8 uStack_10320;
+  undefined8 uStack_10318;
+  undefined8 uStack_10310;
+  undefined1 auStack_10308 [64];
+  undefined1 auStack_102c8 [64];
+  uint auStack_10288 [2];
+  undefined4 auStack_10280 [30];
+  uint uStack_10208;
+  char cStack_10200;
+  char cStack_101ff;
+  char cStack_101fe;
+  undefined1 auStack_101fd [4];
+  undefined1 auStack_101f9 [505];
+  uint local_10000 [4];
+  undefined1 auStack_fff0 [4];
+  undefined1 auStack_ffec [65516];
+  
+  FUN_0029943c(auStack_10308,0,0x40);
+  if (param_1 == 0) {
+    FUN_0029acbc(s_TEEC___s__Could_not_find_device_002bfa82 + 6,s_load_attestation_key_002a1090);
+    return 1;
+  }
+  if (param_2 == (long *)0x0) {
+    FUN_0029acbc(s_misc_partition_not_found__002c092e);
+    return 2;
+  }
+  lVar8 = *param_2 + param_2[1] + -0x80;
+  iVar3 = FUN_0023deec(param_1,lVar8,1,&cStack_10200);
+  if (iVar3 != 1) {
+    pcVar5 = s_failed_to_read_ca_head_from_misc_002c0949;
+LAB_0022906c:
+    FUN_0029acbc(pcVar5);
+    return 3;
+  }
+  if (cStack_10200 != 'C') {
+    return 5;
+  }
+  if (cStack_101ff != 'A') {
+    return 5;
+  }
+  if (cStack_101fe != '\0') {
+    return 5;
+  }
+  FUN_002994ac(auStack_10288,auStack_101fd,4);
+  if (0xffff < auStack_10288[0] - 1) {
+    pcVar5 = s_invalide_data_size__d_002c096b;
+LAB_002290c4:
+    FUN_0029acbc(pcVar5);
+    return 5;
+  }
+  FUN_002994ac(local_10000,auStack_101f9,4);
+  if ((local_10000[0] == 0) || (auStack_10288[0] < local_10000[0])) {
+    pcVar5 = s_invalide_real_size__d_002c0982;
+    goto LAB_002290c4;
+  }
+  FUN_002994ac(&uStack_1034c,auStack_101f9,4);
+  uVar9 = uStack_1034c >> 9;
+  if ((uStack_1034c & 0x1ff) != 0) {
+    uVar9 = uVar9 + 1;
+  }
+  FUN_0029943c(local_10000,0,0x10000);
+  if (0x7f < uVar9 - 1) {
+    FUN_0029acbc(s_invalidate_real_block_num__d_002c0999,uVar9);
+    return 6;
+  }
+  lVar7 = (long)(int)uVar9;
+  lVar6 = FUN_0023deec(param_1,lVar8,lVar7,local_10000);
+  if (lVar7 != lVar6) {
+    pcVar5 = s_failed_to_read_misc_key_002c09b7;
+    goto LAB_0022906c;
+  }
+  uStack_10348 = 0;
+  uStack_10328 = 0;
+  uStack_10320 = 0;
+  uStack_10318 = 0;
+  uStack_10310 = 0;
+  FUN_002994ac(&uStack_10348,auStack_fff0,4);
+  if (0x20 < uStack_10348) {
+    FUN_0029acbc(s_invalidate_device_id_size__d_002c09d0);
+    return 7;
+  }
+  FUN_002994ac(&uStack_10328,auStack_ffec,uStack_10348);
+  puStack_10340 = auStack_ffec + uStack_10348;
+  FUN_00228d74(&puStack_10340,auStack_10344);
+  cVar2 = FUN_00228dac(&puStack_10340,&lStack_10338);
+  if (cVar2 == '\0') {
+LAB_0022919c:
+    pcVar5 = s_copy_blob_from_buf_failed__002c09ee;
+  }
+  else {
+    FUN_002994ac(auStack_10308,s_PrivateKey_002c0a0a,0xb);
+    FUN_00228cc4(1,auStack_10308,lStack_10338,uStack_10330);
+    cVar2 = FUN_00228ec0(&puStack_10340,auStack_10288);
+    if (cVar2 != '\0') {
+      FUN_00228e30(1,(undefined1)uStack_10208);
+      puVar10 = auStack_10280;
+      for (uVar9 = 0; uVar9 < uStack_10208; uVar9 = uVar9 + 1) {
+        uVar11 = *(undefined8 *)(puVar10 + -2);
+        uVar1 = *puVar10;
+        FUN_0029943c(auStack_102c8,0,0x40);
+        FUN_0029ab88(auStack_102c8,0x40,s__s__s__d_002c0a37,s_CertificateChain_002d0f31,
+                     &DAT_002d0f4f,uVar9);
+        uVar4 = FUN_00299204(auStack_102c8);
+        FUN_00228a54(auStack_102c8,uVar4,uVar11,uVar1);
+        puVar10 = puVar10 + 4;
+      }
+      FUN_00228d74(&puStack_10340,auStack_10344);
+      if (lStack_10338 != 0) {
+        FUN_0021ead0();
+      }
+      cVar2 = FUN_00228dac(&puStack_10340,&lStack_10338);
+      if (cVar2 == '\0') goto LAB_0022919c;
+      FUN_00228cc4(3,auStack_10308,lStack_10338,uStack_10330);
+      FUN_002994ac(auStack_103e0,auStack_10288,0x88);
+      FUN_00228c64(auStack_103e0);
+      cVar2 = FUN_00228ec0(&puStack_10340,auStack_10288);
+      if (cVar2 != '\0') {
+        FUN_00228e30(3,(undefined1)uStack_10208);
+        puVar10 = auStack_10280;
+        for (uVar9 = 0; uVar9 < uStack_10208; uVar9 = uVar9 + 1) {
+          uVar11 = *(undefined8 *)(puVar10 + -2);
+          uVar1 = *puVar10;
+          FUN_0029943c(auStack_102c8,0,0x40);
+          FUN_0029ab88(auStack_102c8,0x40,s__s__s__d_002c0a37,s_CertificateChain_002d0f31,
+                       &DAT_002d0f53,uVar9);
+          uVar4 = FUN_00299204(auStack_102c8);
+          FUN_00228a54(auStack_102c8,uVar4,uVar11,uVar1);
+          puVar10 = puVar10 + 4;
+        }
+        FUN_0029943c(local_10000,0,0x10000);
+        lVar8 = FUN_0023df60(param_1,lVar8,lVar7,local_10000);
+        if (lVar7 == lVar8) {
+          return 0;
+        }
+        FUN_0029acbc(s_StorageWriteLba_failed_002c0a40);
+        return 4;
+      }
+    }
+    pcVar5 = s_copy_cert_chain_from_buf_failed__002c0a15;
+  }
+  FUN_0029acbc(pcVar5);
+  return 8;
+}
+
+ (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_00228c64 @ 00228c64 depth=2 size=96 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_0023df60 @ 0023df60 depth=2 size=32 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_00228dac @ 00228dac depth=2 size=132 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_00228d74 @ 00228d74 depth=3 size=56 (GhidraScript)  
+INFO  TraceBootrkp.java> [MATCH] FUN_00228cc4 @ 00228cc4 depth=2 size=176 (GhidraScript)  
+INFO  TraceBootrkp.java> 
+undefined4 FUN_00228cc4(int param_1,undefined8 param_2,undefined8 param_3,undefined4 param_4)
+
+{
+  undefined4 uVar1;
+  undefined1 *puVar2;
+  undefined8 local_40;
+  undefined8 uStack_38;
+  undefined8 local_30;
+  undefined8 uStack_28;
+  undefined8 local_20;
+  undefined8 uStack_18;
+  undefined8 local_10;
+  undefined8 uStack_8;
+  
+  local_40 = 0;
+  uStack_38 = 0;
+  local_30 = 0;
+  uStack_28 = 0;
+  local_20 = 0;
+  uStack_18 = 0;
+  local_10 = 0;
+  uStack_8 = 0;
+  if (param_1 == 1) {
+    puVar2 = &DAT_002d0f4f;
+  }
+  else if (param_1 == 3) {
+    puVar2 = &DAT_002d0f53;
+  }
+  else {
+    puVar2 = &DAT_002cf8bf;
+  }
+  FUN_0029ab88(&local_40,0x40,s__s__s_002d0f56,param_2,puVar2);
+  uVar1 = FUN_00299204(&local_40);
+  uVar1 = FUN_00228a54(&local_40,uVar1,param_3,param_4);
+  FUN_0029acbc(s_write_key_key_file__s_ret__d_002d0f5c,&local_40,uVar1);
+  return uVar1;
+}
+
+ (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_00228e30 @ 00228e30 depth=2 size=144 (GhidraScript)  
+INFO  TraceBootrkp.java> [skip ] FUN_00228ec0 @ 00228ec0 depth=2 size=232 (GhidraScript)  
+INFO  TraceBootrkp.java> 
+========================================================= (GhidraScript)  
+INFO  TraceBootrkp.java> SUMMARY: smoking-gun functions reached from do_bootrkp: (GhidraScript)  
+INFO  TraceBootrkp.java> ========================================================= (GhidraScript)  
+INFO  TraceBootrkp.java>   none of the 7 smoking-gun functions were reached within depth 5 (GhidraScript)  
+INFO  REPORT: Save succeeded for processed file: /uboot.bin (HeadlessAnalyzer)  

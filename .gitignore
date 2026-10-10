@@ -1,0 +1,33 @@
+# AI assistant notes / IDE
+.claude/
+CLAUDE.md
+.vscode/
+__pycache__/
+
+# Vendor tool installs (download these yourself; see README)
+tools/ghidra_install/
+tools/ghidra_project/
+tools/jadx/
+tools/jadx-*.zip
+tools/decompiled_*/
+
+# Downloaded stock ROM — copyrighted, do not redistribute
+stock_rom_compare/
+
+# Decompiled proprietary apps and extracted app blobs — do not redistribute
+backups/*.apk
+backups/txcz_extract/
+backups/rkdevicetest_extract/
+
+# Large derived/intermediate artifacts (rebuildable from the images)
+*.pkl
+backups/init_extracted.bin
+backups/ramdisk_orig.*
+backups/backup_header.bin
+backups/init_rc_patched.rc
+
+# Original scattered working copies (published cleanly under scripts/ and analysis/)
+# Anchored to repo root so they don't also match analysis/init_rc_revert/.
+/init_rc_revert/
+/uboot_anti_tamper_research/
+/tools/

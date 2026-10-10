@@ -1,0 +1,44 @@
+# HY300/RK3326 Bootloader-Level Fix: Safety Playbook
+
+**Read this whole document before touching anything.** This is not a next-step guide — it's the playbook for *if and when* a specific fix (a patched `uboot`/`trust`, or a third-party stock ROM) is actually identified and reflashing is on the table. As of 2026-09-16, the exact TXCZ patch responsible for the `/system` revert still hasn't been located, so there is nothing to flash yet. Nothing in this document should be acted on until that changes.
+
+## The one fact that governs everything else
+
+**There is currently no confirmed-working recovery path if `uboot` or `trust` gets bricked.** `adb reboot bootloader` lands in a non-standard state (`VID_18D1&PID_D00D`) that neither Google's `fastboot` nor `rkdevtool` recognize — `rkdevtool` only ever matches Rockchip's real vendor ID (`0x2207`), never `0x18D1`. The one time the genuine Maskrom ID (`VID_2207&PID_330D`) briefly appeared, it was never reproducible again. Per community research on this exact board, real Maskrom needs either opening the case to short a specific PCB test point, or a deliberate bootloader erase with no software fallback if the recovery flash afterward fails. Both were already declined once, for good reason.
+
+**This means: as of today, writing to `uboot` or `trust` is not a "risky but recoverable" action — it's a potentially permanent, one-way action.** Everything below exists to close that gap *before* any such write happens. If it can't be closed, the write should not happen, full stop.
+
+## Prerequisites — all of these must be true before writing to uboot/trust
+
+1. **A tested, confirmed-working Maskrom entry method for this specific unit.** Not "should work per the internet" — actually attempted and verified reachable on this device, before any risky write. If the PCB-test-point method is ever revisited, the confirmation step is: short the point, confirm `rkdevtool` (or equivalent) sees `VID_2207` in a genuine Maskrom mode, then release — without flashing anything yet. That dry run is the actual prerequisite, not a nice-to-have.
+2. **A full, verified backup of every partition that will be touched**, not just the ones already on disk. Check current state before assuming:
+   - Already fully backed up (byte-for-byte, sizes match the real partition exactly): `boot` (`backups/boot_orig.img`), `vbmeta` (`backups/vbmeta_orig.img`), and — from this session's dumps — `uboot` and `trust` (`init_rc_revert/emmc_dumps/uboot.bin` and `trust.bin`, both 4MB, matching their partitions' full size exactly, so these are already complete backups, not partial dumps).
+   - **Not backed up yet**: `security`, `misc`, `dtbo`, `recovery` (the partition currently being booted from), and the full content of `super`/`system` (only the first 16MB liblp metadata region is saved in `super_header.bin` — the actual filesystem content, ~2.4GB, has never been dumped). If a fix ever touches any of these, back them up first, the same way `uboot.bin`/`trust.bin` were pulled this session.
+   - Best-case addition if feasible: a single full raw image of the whole eMMC (`dd if=/dev/block/mmcblk2 of=... bs=1M`, ~3.9GB) as one complete safety net, taken once, before anything else.
+3. **A recorded checksum (sha256) for every backup file**, taken immediately after the dump and verified readable/intact before it's trusted as a restore source. A backup that was never checksum-verified is not a real backup.
+4. **Any third-party tool or firmware image vetted before it touches this machine or the device** — same standard already applied to `rkdevtool` earlier in this project: confirm the source (official vendor site/GitHub release over a random forum/Mediafire link where possible), check for a published checksum and verify it, run a local antivirus scan on any downloaded executable, and read/skim its source if it's open (as was done for `rkdevtool`'s device-matching logic). This applies fully to any Mediafire stock-ROM link and any third-party flashing tool/driver — neither should be run against the device until vetted this way, and confirming the ROM is genuinely built for this exact board+OEM variant (not just "RK3326_SGO" in general, which multiple different vendors ship) is part of that vetting, not separate from it.
+
+## Ordered sequence — keeps the device recoverable at every step until the last one
+
+Each step should fully complete and be verified before starting the next. If any step fails or gives an unexpected result, stop and reassess rather than continuing.
+
+1. **Vet tooling and image, fully, before the device is involved at all.** Provenance check, checksum verification, AV scan (prerequisite 4). Nothing here touches the projector.
+2. **Take every missing backup** (prerequisite 2), verify each with a checksum, and copy them somewhere other than this one machine if possible (a second drive or cloud folder) — a backup that lives only on the same disk as the working files isn't a real safety net against a separate failure.
+3. **Dry-run Maskrom entry** (prerequisite 1) — confirm the device can actually be put into a real, tool-recognized Maskrom state, without flashing anything yet. If this step fails, stop here. Nothing past this point should happen without it succeeding.
+4. **If the fix is a patched `uboot`/`trust` image**: test the *flashing procedure itself* on the lowest-stakes partition available first — something like `logo` or `baseparameter` (small, cosmetic, not boot-critical) — using the exact same tool and workflow intended for the real write. This confirms the tool, cable, and driver setup actually work end-to-end on this specific machine and device, without any boot-critical exposure. Verify the test write took effect and the device still boots normally afterward.
+5. **Only then, the real write**: flash the patched `uboot`/`trust` (or the vetted stock ROM), using a stable USB connection and a machine that won't sleep, lose power, or disconnect mid-write. Do not multitask on the same USB port/cable during the flash.
+6. **Verify immediately after**: confirm the device boots (into Recovery first, since that's the known-reachable state), then normal boot, before considering the fix successful. Keep every backup from steps 1–2 until this is fully confirmed stable across at least one full power cycle.
+
+## Do NOT
+
+- Do **not** write to `uboot` or `trust` without a *confirmed-working* Maskrom dry run completed first (step 3). A theoretical or previously-attempted-but-unreliable Maskrom path does not count.
+- Do **not** skip the checksum step on any backup. An unverified backup can silently be incomplete or corrupted and give false confidence.
+- Do **not** flash a stock ROM based on it matching "RK3326_SGO" alone — that chip/board name is shared across different OEM builds (the project's own notes already flag that "HY300" branding gets reused across genuinely different hardware). Confirm OEM/variant match as closely as possible first.
+- Do **not** use a flashing tool or driver that hasn't been vetted (provenance + checksum + AV scan), no matter how convenient the download link looks.
+- Do **not** interrupt power or USB connection during any write to `uboot`, `trust`, or any partition — this is the single most common cause of an otherwise-avoidable brick.
+- Do **not** proceed on assumption where a check is possible — e.g., don't assume a backup succeeded without checking its size/checksum, don't assume a downloaded tool is safe without scanning it, don't assume Maskrom will work "this time" without a dry run.
+- Do **not** attempt the case-opening/PCB-short or deliberate-bootloader-erase Maskrom paths without treating that as its own separate, explicit decision — it was already declined once for real reasons (physical risk, no fallback), and revisiting it deserves its own clear conversation, not a step buried inside a larger flashing plan.
+
+## What "recoverable" actually means here — the honest picture
+
+If something goes wrong on `uboot`/`trust` with no working Maskrom path: the only realistic recovery is exactly what's already been ruled out — opening the case to short a PCB test point, or the community-documented risky bootloader-erase-and-reflash approach, both without a guaranteed fallback if they fail. There is no software-only "undo" for a bad bootloader write on this device the way there is for, say, a bad `/system` edit (which Recovery + a raw partition backup can always fix). This is why the Maskrom dry run in step 3 isn't a formality — it's the actual difference between "this is a risky-but-bounded action" and "this could be permanent." If that dry run can't be made to succeed reliably, the honest conclusion is that a bootloader-level fix isn't safely attemptable on this unit right now, and the alternative is accepting the current limitation rather than forcing the issue.

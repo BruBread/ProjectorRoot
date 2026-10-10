@@ -1,0 +1,48 @@
+INFO  Using log config file: jar:file:/C:/Users/user/Desktop/CODING%20STUFF/ProjectorRoot/tools/ghidra_install/ghidra_12.1.3_PUBLIC/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml (LoggingInitialization)  
+INFO  Using log file: C:\Users\user\AppData\Roaming\ghidra\ghidra_12.1.3_PUBLIC\application.log (LoggingInitialization)  
+INFO  Loading user preferences: C:\Users\user\AppData\Roaming\ghidra\ghidra_12.1.3_PUBLIC\preferences (Preferences)  
+INFO  Searching for classes... (ClassSearcher)  
+INFO  Class search complete (1528 ms) (ClassSearcher)  
+INFO  Initializing SSL Context (DefaultSSLContextInitializer)  
+INFO  Initializing Random Number Generator... (SecureRandomFactory)  
+INFO  Random Number Generator initialization complete: SHA1PRNG (SecureRandomFactory)  
+INFO  Trust manager disabled, cacerts have not been set (DefaultTrustManagerFactory)  
+INFO  Headless startup complete (4650 ms) (AnalyzeHeadless)  
+INFO  Class searcher loaded 59 extension points (20 false positives) (ClassSearcher)  
+INFO  HEADLESS Script Paths:
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Features\BSim\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Debug\Debugger\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Features\VersionTracking\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Processors\8051\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Features\FunctionID\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Processors\PIC\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Processors\DATA\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Features\Base\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Features\SystemEmulation\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Features\FileFormats\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Debug\Debugger-rmi-trace\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Features\PyGhidra\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Features\SwiftDemangler\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Features\WildcardAssembler\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Processors\Atmel\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Features\MicrosoftCodeAnalyzer\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Features\BytePatterns\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Features\PDB\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Features\DecompilerDependent\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Features\Decompiler\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Features\GnuDemangler\ghidra_scripts
+    C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_install\ghidra_12.1.3_PUBLIC\Ghidra\Processors\JVM\ghidra_scripts (HeadlessAnalyzer)  
+INFO  HEADLESS: execution starts (HeadlessAnalyzer)  
+INFO  Opening existing project: C:\Users\user\Desktop\CODING~1\PROJEC~1\tools\ghidra_project\ubootproj (HeadlessAnalyzer)  
+INFO  Opening project: C:\Users\user\Desktop\CODING~1\PROJEC~1\tools\ghidra_project\ubootproj (HeadlessProject)  
+INFO  REPORT: Processing project file: /uboot.bin (HeadlessAnalyzer)  
+INFO  REPORT: Execute script: TraceUboot3.java  (HeadlessAnalyzer)  
+INFO  SCRIPT: C:\Users\user\Desktop\CODING STUFF\ProjectorRoot\tools\ghidra_scripts\TraceUboot3.java (HeadlessAnalyzer)  
+INFO  TraceUboot3.java> 
+############ command string: boot_fit ############ (GhidraScript)  
+INFO  TraceUboot3.java>   string @ 002a281a (GhidraScript)  
+INFO  TraceUboot3.java> 
+############ command string: bootrkp ############ (GhidraScript)  
+INFO  TraceUboot3.java>   string @ 002a2823 (GhidraScript)  
+INFO  REPORT: Save succeeded for processed file: /uboot.bin (HeadlessAnalyzer)  
