@@ -104,6 +104,7 @@ PROGRESS_LOG.md        the full blow-by-blow: 19+ attempts, each with its reason
 SAFETY_PLAYBOOK.md     backup-first rules and brick-recovery notes I worked under
 scripts/               everything I actually wrote (see table below)
 scripts/ghidra/        headless Ghidra call-graph tracers for the U-Boot analysis
+keystone/              browser-based projection-mapping controller (warp + shape masks), built on the root access
 backups/               firmware/config pulled from the device (boot, vbmeta, uboot, trust, super header, init.rc)
 analysis/              the evidence trail: hypothesis results (JSON), kernel logs, Ghidra run logs
 ```
@@ -120,6 +121,7 @@ analysis/              the evidence trail: hypothesis results (JSON), kernel log
 | [`scripts/axml_dump.py`](scripts/axml_dump.py) | Decodes binary `AndroidManifest.xml` (AXML string pool) without aapt. |
 | [`scripts/dex_strings.py`](scripts/dex_strings.py) | Pulls the string pool from a `classes.dex` for quick grepping. |
 | [`scripts/ghidra/`](scripts/ghidra/) | Headless Ghidra scripts that walk `do_boot_android`/`do_bootrkp` call graphs and flag any block-write. |
+| [`keystone/keystone.py`](keystone/keystone.py) | Projection-mapping controller. Serves a page to any browser on the LAN (phone or laptop). **Warp**: drags SurfaceFlinger's built-in 4-corner mesh warp live through `persist.sys.keystone.*`. **Shape**: a side counter (1 circle, 2 line, 3+ polygon) masks everything outside the shape, drawn by [`keystone/helper/ProjMap.java`](keystone/helper/ProjMap.java), which runs on the projector via `app_process` and owns a top-most SurfaceControl layer. Presets and a projected alignment grid. Run `keystone/keystone.bat`, or [`ProjectorControl.bat`](ProjectorControl.bat) to also stream the PC desktop (C in its window opens the page; the page's grid button switches between grid and stream). |
 
 ## Legal & scope
 

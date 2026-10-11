@@ -1,0 +1,93 @@
+on property:sys.boot_completed=1
+    chown system system /sys/class/devfreq/ff400000.gpu/governor
+    chown system system /sys/class/devfreq/ff400000.gpu/min_freq
+    chown system system /sys/class/devfreq/ff400000.gpu/max_freq
+    chmod 0664 /sys/class/devfreq/ff400000.gpu/governor
+    chmod 0664 /sys/class/devfreq/ff400000.gpu/min_freq
+    chmod 0664 /sys/class/devfreq/ff400000.gpu/max_freq
+    setprop persist.sys.keystone.update 1
+    write /sys/devices/system/cpu/cpufreq/policy0/interactive/target_loads 65
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 0
+    write /sys/devices/system/cpu/cpufreq/policy0/scaling_governor interactive
+    write /sys/devices/platform/ff2c0000.syscon/ff2c0000.syscon:usb2-phy@100/otg_mode host
+	write /sys/class/leds/IO_A/brightness 0
+	write /sys/class/leds/IO_B/brightness 0
+	write /sys/class/leds/IO_C/brightness 1
+
+    write /sys/class/devfreq/dmc/governor dmc_ondemand
+   chown system system /sys/class/motor_cc/motor_cc/motor
+  chmod 0777 /sys/class/motor_cc/motor_cc/motor
+  chown system system /sys/class/leds/IO_A/brightness
+  chmod 0777 /sys/class/leds/IO_A/brightness
+  chown system system /sys/class/leds/IO_B/brightness
+  chmod 0777 /sys/class/leds/IO_B/brightness
+  chown system system /sys/class/leds/IO_C/brightness
+  chmod 0777 /sys/class/leds/IO_C/brightness
+  chown system system /sys/class/hdmirx/rk628/hdcp_key
+  chmod 0777 /sys/class/hdmirx/rk628/hdcp_key
+  chown system system /sys/class/leds/Lcd_power/brightness
+  chmod 0777 /sys/class/leds/Lcd_power/brightness
+  chown system system /sys/class/leds/SPK_CRL/brightness
+  chmod 0777 /sys/class/leds/SPK_CRL/brightness
+  chown system system /sys/class/leds/Lcd_en/brightness
+  chmod 0777 /sys/class/leds/Lcd_en/brightness
+  chown system system /sys/class/leds/SPK_MUTE/brightness
+  chmod 0777 /sys/class/leds/SPK_MUTE/brightness
+  chmod 0777 /data/key.lic
+  chown system system /proc/sys/kernel/sysrq
+  chmod 0777 /proc/sys/kernel/sysrq
+  chown system system /proc/sysrq-trigger
+  chmod 0777 /proc/sysrq-trigger
+#  setprop persist.sys.usb.config none
+ # setprop sys.usb.config none
+
+on charger
+    chown system system /sys/class/devfreq/ff400000.gpu/governor
+    chown system system /sys/class/devfreq/ff400000.gpu/min_freq
+    chown system system /sys/class/devfreq/ff400000.gpu/max_freq
+    chmod 0664 /sys/class/devfreq/ff400000.gpu/governor
+    chmod 0664 /sys/class/devfreq/ff400000.gpu/min_freq
+    chmod 0664 /sys/class/devfreq/ff400000.gpu/max_freq
+
+    write /sys/devices/system/cpu/cpufreq/policy0/interactive/target_loads 65
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 0
+    write /sys/devices/system/cpu/cpufreq/policy0/scaling_governor interactive
+
+    write /sys/class/devfreq/dmc/governor dmc_ondemand
+
+on boot
+    chown system system /sys/class/thermal/thermal_zone0/policy
+    chown system system /sys/class/thermal/thermal_zone1/policy
+    chown system system /sys/class/thermal/thermal_zone2/policy
+    # update cpusets feature nodes for rk3326 tablet
+    write /dev/cpuset/foreground/cpus 0-3
+    write /dev/cpuset/foreground/boost/cpus 0-3
+    write /dev/cpuset/background/cpus 0-2
+    write /dev/cpuset/system-background/cpus 0-2
+    write /dev/cpuset/top-app/cpus 0-3
+    chown system system /cust
+    chown system system /cust/hybin
+    chown system system /logo
+    chown system system /logo/logo.bmp
+    chmod 0777  /logo
+    chmod 0777 /logo/logo.bmp
+    chmod 0777 /logo/bootanimation.zip
+    chmod 0777 /logo/bootanimation.ts
+
+    # reduce schedul time to improve io performance
+    write /sys/kernel/debug/sched_features NO_ENERGY_AWARE
+
+on init
+    # Increased power consumption and CPU in exchange for memory
+    write /proc/sys/vm/swappiness 100
+    write /sys/block/zram0/comp_algorithm lz4
+
+    chown system system /sys/system_monitor/system_status
+    chmod 0666 /sys/system_monitor/system_status
+
+    chown system system /sys/class/devfreq/dmc/system_status
+    chmod 0666 /sys/class/devfreq/dmc/system_status
+
+on early-init
+    write /sys/devices/system/cpu/cpufreq/policy0/scaling_governor performance
+    write /sys/class/devfreq/dmc/governor performance

@@ -1,0 +1,9 @@
+com.aispeech.tvui
+com.android.mgstv
+com.google.android.youtube.tv
+com.limelight
+com.mm.droid.livetv.fili
+com.netflix.mediaclient
+com.rockchip.itvbox
+com.shamsheer.projectorsettingslauncher
+de.szalkowski.activitylauncher

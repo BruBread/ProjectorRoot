@@ -1,0 +1,670 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0e0f12">
+<title>Projection Mapping</title>
+<style>
+  /* Dark only: this gets used in a dark room next to a projector. */
+  :root {
+    --bg: #0e0f12; --panel: #17191e; --raised: #20232a; --line: #2c3038; --text: #e8e9ec; --muted: #8b8f99;
+    --accent: #4c8dff; --shape: #ffb340; --ok: #3ccf6e; --bad: #ff5a5a;
+    --lt: #ff3c3c; --rt: #3cdc3c; --lb: #3c8cff; --rb: #ffd23c;   /* same colors as the projected grid's corner squares */
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--bg); color: var(--text); font: 15px/1.4 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  main { max-width: 1040px; margin: 0 auto; padding: 12px 16px calc(20px + env(safe-area-inset-bottom)); }
+  header { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
+  h1 { font-size: 17px; font-weight: 600; margin: 0; }
+  #status { display: flex; align-items: center; gap: 7px; font-size: 13px; color: var(--muted); min-width: 0; }
+  #status span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  #status::before { content: ""; flex: none; width: 8px; height: 8px; border-radius: 50%; background: var(--muted); }
+  #status.ok::before { background: var(--ok); }
+  #status.bad { color: var(--bad); }
+  #status.bad::before { background: var(--bad); }
+
+  .modes { margin-bottom: 10px; }
+  .modes button { font-weight: 600; }
+  canvas { display: block; width: 100%; border-radius: 12px; background: var(--panel); touch-action: none; }
+  .hint { color: var(--muted); font-size: 13px; margin: 8px 2px 0; }
+
+  .controls { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 14px; margin-top: 14px; }
+  .card { background: var(--panel); border-radius: 12px; padding: 12px; display: grid; gap: 12px; align-content: start; }
+  .label { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; }
+  .row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+  .row > * { flex: 1 1 auto; }
+
+  button, select {
+    font: inherit; color: var(--text); background: var(--raised); border: 1px solid var(--line); border-radius: 10px;
+    min-height: 44px; padding: 0 14px; cursor: pointer; touch-action: manipulation;
+  }
+  select { min-width: 0; flex: 1 1 140px; }
+  button:hover { border-color: #3d424d; }
+  button:active { background: #2a2e37; }
+  button:disabled { opacity: .4; cursor: default; }
+  button[aria-pressed="true"] { border-color: var(--accent); background: rgba(76, 141, 255, .16); }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  .chips { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .chip { display: flex; align-items: center; gap: 8px; justify-content: flex-start; }
+  .dot { width: 12px; height: 12px; border-radius: 50%; flex: none; }
+  [hidden] { display: none !important; }
+
+  .tune { display: flex; gap: 14px; align-items: center; }
+  .dpad { display: grid; grid-template-columns: repeat(3, 52px); grid-template-rows: repeat(3, 52px); gap: 6px; flex: none; }
+  .dpad button { padding: 0; font-size: 20px; user-select: none; -webkit-user-select: none; }
+  .dpad .center { display: grid; place-items: center; }
+  .dpad .center .dot { width: 18px; height: 18px; }
+  .side { display: grid; gap: 10px; flex: 1; min-width: 0; }
+  #readout { font-variant-numeric: tabular-nums; font-size: 14px; }
+  .seg { display: flex; }
+  .seg button { flex: 1; border-radius: 0; white-space: nowrap; padding: 0 8px; }
+  .seg button:first-child { border-radius: 10px 0 0 10px; }
+  .seg button:last-child { border-radius: 0 10px 10px 0; border-left: 0; }
+
+  .counter { display: grid; grid-template-columns: 56px 1fr 56px; gap: 8px; align-items: center; }
+  .counter button { font-size: 22px; padding: 0; }
+  .counter output { text-align: center; line-height: 1.2; }
+  #sides { display: block; font-size: 28px; font-weight: 600; font-variant-numeric: tabular-nums; }
+  #shapename { color: var(--muted); font-size: 13px; }
+  #mask[aria-pressed="true"] { border-color: var(--shape); background: rgba(255, 179, 64, .16); }
+  kbd { font: 12px ui-monospace, monospace; background: var(--raised); border: 1px solid var(--line); border-radius: 4px; padding: 0 4px; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>Projection Mapping</h1>
+    <div id="status" role="status"><span>connecting…</span></div>
+  </header>
+
+  <div class="seg modes" role="group" aria-label="What to edit">
+    <button data-mode="warp" aria-pressed="true">Warp</button>
+    <button data-mode="shape" aria-pressed="false">Shape</button>
+  </div>
+  <canvas id="c" aria-label="Projector panel. Drag the handles to adjust."></canvas>
+  <p class="hint" id="hint"></p>
+
+  <div class="controls">
+    <section class="card" aria-label="Shape">
+      <div class="label">Shape</div>
+      <div class="counter">
+        <button id="fewer" aria-label="Fewer sides">−</button>
+        <output id="sideout" aria-live="polite"><span id="sides">1</span><span id="shapename">Circle</span></output>
+        <button id="more" aria-label="More sides">+</button>
+      </div>
+      <button id="mask" aria-pressed="false">Mask off</button>
+      <p class="hint" style="margin:0">Sides: 1 circle, 2 line, 3 triangle, more for polygons. With the mask on, the projector shows black outside the shape. The shape moves with the warp.</p>
+    </section>
+
+    <section class="card" aria-label="Fine adjust">
+      <div class="label">Fine adjust</div>
+      <div class="chips" id="chips" role="group" aria-label="Corner">
+        <button class="chip" data-corner="0"><span class="dot" style="background:var(--lt)"></span>Top left</button>
+        <button class="chip" data-corner="1"><span class="dot" style="background:var(--rt)"></span>Top right</button>
+        <button class="chip" data-corner="2"><span class="dot" style="background:var(--lb)"></span>Bottom left</button>
+        <button class="chip" data-corner="3"><span class="dot" style="background:var(--rb)"></span>Bottom right</button>
+      </div>
+      <div class="row" id="handlenav" hidden>
+        <button id="prevh" aria-label="Previous handle">◀ Handle</button>
+        <button id="nexth" aria-label="Next handle">Handle ▶</button>
+      </div>
+      <div class="tune">
+        <div class="dpad">
+          <span></span><button data-nudge="0,-1" aria-label="Up">↑</button><span></span>
+          <button data-nudge="-1,0" aria-label="Left">←</button>
+          <span class="center"><span class="dot" id="seldot"></span></span>
+          <button data-nudge="1,0" aria-label="Right">→</button>
+          <span></span><button data-nudge="0,1" aria-label="Down">↓</button><span></span>
+        </div>
+        <div class="side">
+          <div id="readout"></div>
+          <div class="seg" role="group" aria-label="Step size">
+            <button data-step="1" aria-pressed="true">1 px</button>
+            <button data-step="10" aria-pressed="false">10 px</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card" aria-label="Image and presets">
+      <div class="label">Image</div>
+      <div class="row">
+        <button id="undo" disabled>Undo</button>
+        <button id="grid" aria-pressed="false">Show grid</button>
+      </div>
+      <div class="row">
+        <button id="factory" title="The projector's factory keystone (90% size)">Factory warp</button>
+        <button id="full" title="No keystone: corners at the panel corners">Full panel</button>
+      </div>
+      <div class="label">Presets (warp + shape)</div>
+      <div class="row">
+        <select id="preset" aria-label="Preset"></select>
+        <button id="load" disabled>Load</button>
+      </div>
+      <div class="row">
+        <button id="save">Save current…</button>
+        <button id="del" disabled>Delete</button>
+      </div>
+      <p class="hint" style="margin:0">Keys: <kbd>W</kbd>/<kbd>S</kbd> warp/shape, <kbd>1</kbd>–<kbd>9</kbd> pick, arrows nudge (<kbd>Shift</kbd> ×10), <kbd>+</kbd>/<kbd>−</kbd> sides, <kbd>M</kbd> mask, <kbd>Ctrl</kbd>+<kbd>Z</kbd> undo, <kbd>G</kbd> grid</p>
+    </section>
+  </div>
+</main>
+
+<script>
+const $ = s => document.querySelector(s);
+const cv = $('#c'), ctx = cv.getContext('2d');
+const css = n => getComputedStyle(document.documentElement).getPropertyValue('--' + n).trim();
+const LABELS = ['Top left', 'Top right', 'Bottom left', 'Bottom right'];
+const COL = ['lt', 'rt', 'lb', 'rb'].map(css), SHAPE_COL = css('shape');
+const SHAPE_NAMES = { 1: 'Circle', 2: 'Line', 3: 'Triangle', 4: 'Quad', 5: 'Pentagon', 6: 'Hexagon', 7: 'Heptagon', 8: 'Octagon' };
+const MAX_SIDES = 12;
+const RING = [0, 1, 3, 2];                      // corners are lt, rt, lb, rb; polygon order is lt → rt → rb → lb
+const EDGES = [[0, 1], [1, 3], [3, 2], [2, 0]]; // top, right, bottom, left
+const M = 22;                                   // canvas margin (CSS px) so handles on the panel edge stay grabbable
+const HINTS = {
+  warp: "Drag a corner. Drag an edge's square to stretch that side. Drag inside to move the whole image. Pinch or scroll to zoom.",
+  shape: 'Drag the round handles to reshape. Drag inside the shape to move it. Pinch or scroll to resize it.',
+};
+
+// C: warp corners in panel px (lt, rt, lb, rb). S: shape in image px, see parse_shape() in keystone.py.
+let W = 1280, H = 720, C = [[0, 0], [1280, 0], [0, 720], [1280, 720]], factory = null, presets = {};
+let S = { sides: 1, on: false, c: [640, 360], r: 288 };
+let mode = 'warp', sel = 0, hsel = 0, step = 1, grid = false, stream = false, undo = [];  // stream: the PC stream runs under the grid
+let k = 1, ox = M, oy = M;                      // panel px → CSS px
+
+const copy = q => q.map(p => [...p]);
+const copyShape = s => JSON.parse(JSON.stringify(s));
+const lerp = (a, b, t) => [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t];
+const cross = (a, b, c) => (b[0] - a[0]) * (c[1] - a[1]) - (b[1] - a[1]) * (c[0] - a[0]);
+const clampTo = (p, w, h) => [Math.min(Math.max(p[0], 0), w), Math.min(Math.max(p[1], 0), h)];
+const toCss = ([x, y]) => [ox + x * k, oy + y * k];
+const toPanel = (x, y) => [(x - ox) / k, (y - oy) / k];
+// clientX minus the canvas rect, not offsetX: offsetX is unreliable under page zoom and pointer capture.
+const pos = e => { const r = cv.getBoundingClientRect(); return [e.clientX - r.left, e.clientY - r.top]; };
+
+// Inside the panel, convex, and not mirrored: SurfaceFlinger's mesh can't do anything sensible otherwise.
+function valid(q) {
+  if (!q.every(([x, y]) => x >= 0 && x <= W && y >= 0 && y <= H)) return false;
+  const P = RING.map(i => q[i]);
+  return P.every((a, i) => cross(a, P[(i + 1) % 4], P[(i + 2) % 4]) > 100);
+}
+
+function inside(p) {
+  const P = RING.map(i => C[i]);
+  return P.every((a, i) => cross(a, P[(i + 1) % 4], p) > 0);
+}
+
+function inPolygon(P, [x, y]) {  // even-odd ray cast: shapes may be concave
+  let c = false;
+  for (let i = 0, j = P.length - 1; i < P.length; j = i++)
+    if ((P[i][1] > y) !== (P[j][1] > y) && x < (P[j][0] - P[i][0]) * (y - P[i][1]) / (P[j][1] - P[i][1]) + P[i][0]) c = !c;
+  return c;
+}
+
+// Move points `idx` of `q` by (dx, dy), clamping the delta so they stay inside w × h.
+function shifted(q, idx, dx, dy, w = W, h = H) {
+  const xs = idx.map(i => q[i][0]), ys = idx.map(i => q[i][1]);
+  dx = Math.min(Math.max(dx, -Math.min(...xs)), w - Math.max(...xs));
+  dy = Math.min(Math.max(dy, -Math.min(...ys)), h - Math.max(...ys));
+  const n = copy(q);
+  for (const i of idx) n[i] = [q[i][0] + dx, q[i][1] + dy];
+  return n;
+}
+
+function scaled(q, s) {
+  const cx = q.reduce((a, p) => a + p[0], 0) / q.length, cy = q.reduce((a, p) => a + p[1], 0) / q.length;
+  return q.map(([x, y]) => [cx + (x - cx) * s, cy + (y - cy) * s]);
+}
+
+// --- warp: image px ↔ panel px ---
+// Square-to-quad homography (Heckbert), the same perspective mapping SurfaceFlinger's mesh uses.
+// Returns a 3×3 matrix taking (u, v) in the unit square (u: left→right, v: top→bottom) onto quad q.
+function homography(q) {
+  const [x0, y0] = q[0], [x1, y1] = q[1], [x2, y2] = q[3], [x3, y3] = q[2];
+  const dx1 = x1 - x2, dx2 = x3 - x2, dx3 = x0 - x1 + x2 - x3;
+  const dy1 = y1 - y2, dy2 = y3 - y2, dy3 = y0 - y1 + y2 - y3;
+  const den = dx1 * dy2 - dx2 * dy1;
+  const g = (dx3 * dy2 - dx2 * dy3) / den, h = (dx1 * dy3 - dx3 * dy1) / den;
+  return [x1 - x0 + g * x1, x3 - x0 + h * x3, x0, y1 - y0 + g * y1, y3 - y0 + h * y3, y0, g, h, 1];
+}
+function invert3([a, b, c, d, e, f, g, h, i]) {
+  return [e * i - f * h, c * h - b * i, b * f - c * e,
+          f * g - d * i, a * i - c * g, c * d - a * f,
+          d * h - e * g, b * g - a * h, a * e - b * d];   // adjugate: a projective map doesn't care about scale
+}
+const project = (m, x, y) => { const w = m[6] * x + m[7] * y + m[8]; return [(m[0] * x + m[1] * y + m[2]) / w, (m[3] * x + m[4] * y + m[5]) / w]; };
+let Hm = homography(C), Hi = invert3(Hm);
+const imgToPanel = ([x, y]) => project(Hm, x / W, y / H);
+const panelToImg = ([x, y]) => { const [u, v] = project(Hi, x, y); return [u * W, v * H]; };
+
+// --- shape (image px) ---
+function shapePoly(s) {
+  if (s.sides === 1)
+    return Array.from({ length: 96 }, (_, i) => [s.c[0] + s.r * Math.cos(i * Math.PI / 48), s.c[1] + s.r * Math.sin(i * Math.PI / 48)]);
+  if (s.sides === 2) {
+    const [p, q] = s.pts, len = Math.hypot(q[0] - p[0], q[1] - p[1]) || 1;
+    const nx = -(q[1] - p[1]) / len * s.w / 2, ny = (q[0] - p[0]) / len * s.w / 2;
+    return [[p[0] + nx, p[1] + ny], [q[0] + nx, q[1] + ny], [q[0] - nx, q[1] - ny], [p[0] - nx, p[1] - ny]];
+  }
+  return s.pts;
+}
+
+// Handles: circle → centre, rim; line → both ends, width; polygon → its points.
+function shapeHandles(s) {
+  if (s.sides === 1) return [s.c, [s.c[0] + s.r, s.c[1]]];
+  if (s.sides === 2) { const P = shapePoly(s); return [...s.pts, lerp(P[0], P[1], 0.5)]; }
+  return s.pts;
+}
+function handleName(s, i) {
+  if (s.sides === 1) return ['centre', 'radius'][i];
+  if (s.sides === 2) return ['end 1', 'end 2', 'width'][i];
+  return 'point ' + (i + 1);
+}
+
+function withHandle(s, i, t) {
+  const n = copyShape(s);
+  t = clampTo(t, W, H);
+  if (s.sides === 1) {
+    if (i === 0) n.c = t; else n.r = Math.max(8, Math.hypot(t[0] - s.c[0], t[1] - s.c[1]));
+  } else if (s.sides === 2 && i === 2) {
+    const [p, q] = s.pts;
+    n.w = Math.max(4, 2 * Math.abs(cross(p, q, t)) / (Math.hypot(q[0] - p[0], q[1] - p[1]) || 1));
+  } else n.pts[i] = t;
+  return n;
+}
+
+function movedShape(s, dx, dy) {
+  const n = copyShape(s);
+  if (s.sides === 1) n.c = shifted([s.c], [0], dx, dy)[0];
+  else n.pts = shifted(s.pts, s.pts.map((_, i) => i), dx, dy);
+  return n;
+}
+
+function scaledShape(s, f) {
+  const n = copyShape(s);
+  if (s.sides === 1) { n.r = Math.min(Math.max(8, s.r * f), 2 * Math.max(W, H)); return n; }
+  n.pts = scaled(s.pts, f);
+  if (s.sides === 2) n.w = Math.max(4, s.w * f);
+  return n.pts.every(([x, y]) => x >= 0 && x <= W && y >= 0 && y <= H) ? n : s;
+}
+
+// Changing the side count keeps the shape's centre and size: same centre, same farthest reach.
+function reshape(s, sides) {
+  const P = shapePoly(s);
+  const cx = P.reduce((a, p) => a + p[0], 0) / P.length, cy = P.reduce((a, p) => a + p[1], 0) / P.length;
+  const r = Math.max(16, ...P.map(p => Math.hypot(p[0] - cx, p[1] - cy)));
+  if (sides === 1) return { sides, on: s.on, c: [cx, cy], r };
+  if (sides === 2) return { sides, on: s.on, pts: [clampTo([cx - r, cy], W, H), clampTo([cx + r, cy], W, H)], w: Math.max(8, r / 4) };
+  const a0 = -Math.PI / 2 - (sides % 2 ? 0 : Math.PI / sides);  // odd: a point on top; even: a flat top
+  return { sides, on: s.on, pts: Array.from({ length: sides }, (_, i) =>
+    clampTo([cx + r * Math.cos(a0 + 2 * Math.PI * i / sides), cy + r * Math.sin(a0 + 2 * Math.PI * i / sides)], W, H)) };
+}
+
+// --- changes ---
+function commitWarp(n) {
+  if (!valid(n)) return false;
+  C = n;
+  draw();
+  send();
+  return true;
+}
+function commitShape(n) {
+  S = n;
+  draw();
+  send();
+}
+
+// --- undo: drags push once; repeated nudges/scrolls within 700ms share one entry ---
+let undoKey = null, undoT = 0;
+function pushUndo(key) {
+  const t = performance.now();
+  if (key && key === undoKey && t - undoT < 700) { undoT = t; return; }
+  undoKey = key; undoT = t;
+  undo.push({ C: copy(C), S: copyShape(S) });
+  if (undo.length > 100) undo.shift();
+  $('#undo').disabled = false;
+}
+function doUndo() {
+  if (!undo.length) return;
+  ({ C, S } = undo.pop());
+  undoKey = null;
+  hsel = Math.min(hsel, shapeHandles(S).length - 1);
+  $('#undo').disabled = !undo.length;
+  draw();
+  send();
+}
+function setWarp(q) { pushUndo(); commitWarp(q) || status('That warp is not valid on this panel', 'bad'); }
+
+// --- drawing ---
+function resize() {
+  const dpr = devicePixelRatio || 1, cw = cv.clientWidth;
+  k = Math.min((cw - 2 * M) / W, (innerHeight * 0.6 - 2 * M) / H);
+  const ch = H * k + 2 * M;
+  ox = (cw - W * k) / 2; oy = M;
+  cv.style.height = ch + 'px';
+  cv.width = Math.round(cw * dpr); cv.height = Math.round(ch * dpr);
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  draw();
+}
+
+function path(P) { ctx.beginPath(); P.forEach((p, j) => ctx[j ? 'lineTo' : 'moveTo'](...p)); ctx.closePath(); }
+function dot(p, r, fill, ring) {
+  if (ring) { ctx.beginPath(); ctx.arc(...p, r + 7, 0, 7); ctx.lineWidth = 2; ctx.strokeStyle = ring; ctx.stroke(); }
+  ctx.beginPath(); ctx.arc(...p, r, 0, 7); ctx.fillStyle = fill; ctx.fill();
+}
+
+function draw() {
+  Hm = homography(C); Hi = invert3(Hm);
+  // Clear in device pixels: under the dpr transform, clearing cv.width CSS px misses the right/bottom strips when dpr < 1 (zoomed-out page).
+  ctx.save(); ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.clearRect(0, 0, cv.width, cv.height); ctx.restore();
+  ctx.setLineDash([6, 6]); ctx.lineWidth = 1; ctx.strokeStyle = '#3d424d';
+  ctx.strokeRect(ox, oy, W * k, H * k);
+  ctx.setLineDash([]);
+
+  const warp = mode === 'warp';
+  const P = C.map(toCss), Q = RING.map(i => P[i]);
+  const map = homography(P);  // image grid in CSS px; perspective maps lines to lines, so endpoints are enough
+  path(Q); ctx.fillStyle = 'rgba(76,141,255,.10)'; ctx.fill();
+  ctx.beginPath(); ctx.lineWidth = 1; ctx.strokeStyle = warp ? 'rgba(255,255,255,.16)' : 'rgba(255,255,255,.08)';
+  for (let i = 1; i < 16; i++) { ctx.moveTo(...project(map, i / 16, 0)); ctx.lineTo(...project(map, i / 16, 1)); }
+  for (let j = 1; j < 9; j++) { ctx.moveTo(...project(map, 0, j / 9)); ctx.lineTo(...project(map, 1, j / 9)); }
+  ctx.stroke();
+
+  const SP = shapePoly(S).map(p => toCss(imgToPanel(p)));
+  if (S.on) {  // what the mask blacks out: the image minus the shape
+    ctx.beginPath(); Q.forEach((p, j) => ctx[j ? 'lineTo' : 'moveTo'](...p)); ctx.closePath();
+    SP.forEach((p, j) => ctx[j ? 'lineTo' : 'moveTo'](...p)); ctx.closePath();
+    ctx.fillStyle = 'rgba(0,0,0,.62)'; ctx.fill('evenodd');
+  }
+  path(Q); ctx.lineWidth = warp ? 2 : 1; ctx.strokeStyle = warp ? '#e8e9ec' : '#5b606b'; ctx.stroke();
+  path(SP); ctx.setLineDash(S.on ? [] : [5, 5]); ctx.lineWidth = warp ? 1 : 2;
+  ctx.strokeStyle = warp ? 'rgba(255,179,64,.5)' : SHAPE_COL; ctx.stroke(); ctx.setLineDash([]);
+
+  if (warp) {
+    ctx.fillStyle = '#e8e9ec';
+    for (const [a, b] of EDGES) { const [x, y] = lerp(P[a], P[b], 0.5); ctx.fillRect(x - 6, y - 6, 12, 12); }
+    P.forEach((p, i) => dot(p, 9, COL[i], i === sel && COL[i]));
+  } else {
+    shapeHandles(S).forEach((h, i) => dot(toCss(imgToPanel(h)), i === hsel ? 9 : 7, i === hsel ? SHAPE_COL : '#e8e9ec', i === hsel && SHAPE_COL));
+  }
+  readout();
+}
+
+function readout() {
+  const warp = mode === 'warp';
+  const [x, y] = (warp ? C[sel] : shapeHandles(S)[hsel]).map(Math.round);
+  $('#readout').textContent = warp ? `${LABELS[sel]} · ${x}, ${y}` : `${SHAPE_NAMES[S.sides] || S.sides + '-gon'} ${handleName(S, hsel)} · ${x}, ${y}`;
+  $('#seldot').style.background = warp ? COL[sel] : SHAPE_COL;
+  document.querySelectorAll('[data-corner]').forEach(b => b.setAttribute('aria-pressed', +b.dataset.corner === sel));
+  $('#sides').textContent = S.sides;
+  $('#shapename').textContent = SHAPE_NAMES[S.sides] || S.sides + '-gon';
+  $('#fewer').disabled = S.sides <= 1;
+  $('#more').disabled = S.sides >= MAX_SIDES;
+  $('#mask').setAttribute('aria-pressed', S.on);
+  $('#mask').textContent = S.on ? 'Mask on' : 'Mask off';
+}
+
+function setMode(m) {
+  mode = m;
+  document.querySelectorAll('[data-mode]').forEach(b => b.setAttribute('aria-pressed', b.dataset.mode === m));
+  $('#chips').hidden = m !== 'warp';
+  $('#handlenav').hidden = m === 'warp';
+  $('#hint').textContent = HINTS[m];
+  draw();
+}
+
+// --- pointer ---
+const pointers = new Map();
+let drag = null, gestureUndo = false;
+
+function nearest(pts, p) {
+  let bi = -1, bd = 30;  // CSS px: big enough for a finger
+  pts.forEach((q, i) => { const d = Math.hypot(q[0] - p[0], q[1] - p[1]); if (d < bd) { bd = d; bi = i; } });
+  return bi;
+}
+
+function hit(cssP) {
+  const p = toPanel(...cssP);
+  if (mode === 'warp') {
+    const c = nearest(C.map(toCss), cssP);
+    if (c >= 0) return { kind: 'warp', idx: [c], corner: c, cursor: 'grab' };
+    const e = nearest(EDGES.map(([a, b]) => toCss(lerp(C[a], C[b], 0.5))), cssP);
+    if (e >= 0) return { kind: 'warp', idx: EDGES[e], cursor: 'grab' };
+    if (inside(p)) return { kind: 'warp', idx: [0, 1, 2, 3], cursor: 'move' };
+    return null;
+  }
+  const handles = shapeHandles(S).map(h => toCss(imgToPanel(h)));
+  const i = nearest(handles, cssP);
+  if (i >= 0) return { kind: 'handle', i, grab: [handles[i][0] - cssP[0], handles[i][1] - cssP[1]], cursor: 'grab' };
+  if (inPolygon(shapePoly(S), panelToImg(p))) return { kind: 'moveShape', cursor: 'move' };
+  return null;
+}
+
+const fingerDist = () => { const [a, b] = [...pointers.values()]; return Math.hypot(a[0] - b[0], a[1] - b[1]); };
+
+cv.addEventListener('pointerdown', e => {
+  cv.setPointerCapture(e.pointerId);
+  pointers.set(e.pointerId, pos(e));
+  if (pointers.size === 2) {
+    if (!gestureUndo) { pushUndo(); gestureUndo = true; }
+    drag = { kind: 'pinch', snapC: copy(C), snapS: copyShape(S), d0: fingerDist() || 1 };
+    return;
+  }
+  if (pointers.size > 2) return;
+  const p = pos(e), h = hit(p);
+  if (!h) return;
+  pushUndo(); gestureUndo = true;
+  if (h.corner !== undefined) sel = h.corner;
+  if (h.kind === 'handle') hsel = h.i;
+  drag = { ...h, start: p, startPanel: toPanel(...p), snapC: copy(C), snapS: copyShape(S) };
+  draw();
+});
+
+cv.addEventListener('pointermove', e => {
+  const p = pos(e);
+  if (!pointers.has(e.pointerId)) {
+    if (e.pointerType === 'mouse') { const h = hit(p); cv.style.cursor = h ? h.cursor : 'default'; }
+    return;
+  }
+  pointers.set(e.pointerId, p);
+  if (!drag) return;
+  if (drag.kind === 'pinch') {
+    if (pointers.size !== 2) return;
+    const f = fingerDist() / drag.d0;
+    mode === 'warp' ? commitWarp(scaled(drag.snapC, f)) : commitShape(scaledShape(drag.snapS, f));
+  } else if (drag.kind === 'warp') {
+    const q = toPanel(...p);
+    commitWarp(shifted(drag.snapC, drag.idx, q[0] - drag.startPanel[0], q[1] - drag.startPanel[1]));
+  } else if (drag.kind === 'handle') {
+    commitShape(withHandle(drag.snapS, drag.i, panelToImg(toPanel(p[0] + drag.grab[0], p[1] + drag.grab[1]))));
+  } else {
+    const a = panelToImg(drag.startPanel), b = panelToImg(toPanel(...p));
+    commitShape(movedShape(drag.snapS, b[0] - a[0], b[1] - a[1]));
+  }
+});
+
+function release(e) {
+  pointers.delete(e.pointerId);
+  if (drag && (drag.kind === 'pinch' || !pointers.size)) drag = null;  // after a pinch, wait for all fingers up
+  if (!pointers.size) gestureUndo = false;
+}
+cv.addEventListener('pointerup', release);
+cv.addEventListener('pointercancel', release);
+
+cv.addEventListener('wheel', e => {
+  e.preventDefault();
+  pushUndo('wheel');
+  const f = Math.exp(-e.deltaY * 0.0015);
+  mode === 'warp' ? commitWarp(scaled(C, f)) : commitShape(scaledShape(S, f));
+}, { passive: false });
+
+// --- fine adjust ---
+function nudge(dx, dy, mult = step) {
+  pushUndo('nudge');
+  if (mode === 'warp') commitWarp(shifted(C, [sel], dx * mult, dy * mult));
+  else { const h = shapeHandles(S)[hsel]; commitShape(withHandle(S, hsel, [h[0] + dx * mult, h[1] + dy * mult])); }
+}
+
+document.querySelectorAll('[data-nudge]').forEach(b => {
+  const [dx, dy] = b.dataset.nudge.split(',').map(Number);
+  let delay, repeat;
+  const stop = () => { clearTimeout(delay); clearInterval(repeat); };
+  b.addEventListener('pointerdown', e => {
+    e.preventDefault();
+    nudge(dx, dy);
+    delay = setTimeout(() => { repeat = setInterval(() => nudge(dx, dy), 70); }, 350);  // hold to repeat
+  });
+  ['pointerup', 'pointerleave', 'pointercancel'].forEach(ev => b.addEventListener(ev, stop));
+  b.addEventListener('click', e => { if (e.detail === 0) nudge(dx, dy); });  // keyboard Enter/Space
+});
+
+function pick(i) {
+  if (mode === 'warp') { if (i < 4) sel = i; }
+  else hsel = (i + shapeHandles(S).length) % shapeHandles(S).length;
+  draw();
+}
+function setSides(n) {
+  n = Math.min(Math.max(n, 1), MAX_SIDES);
+  if (n === S.sides) return;
+  pushUndo();
+  hsel = 0;
+  if (mode !== 'shape') setMode('shape');
+  commitShape(reshape(S, n));
+}
+function toggleMask() { pushUndo(); commitShape({ ...copyShape(S), on: !S.on }); }
+
+document.querySelectorAll('[data-corner]').forEach(b => b.addEventListener('click', () => pick(+b.dataset.corner)));
+document.querySelectorAll('[data-mode]').forEach(b => b.addEventListener('click', () => setMode(b.dataset.mode)));
+document.querySelectorAll('[data-step]').forEach(b => b.addEventListener('click', () => {
+  step = +b.dataset.step;
+  document.querySelectorAll('[data-step]').forEach(o => o.setAttribute('aria-pressed', o === b));
+}));
+$('#prevh').onclick = () => pick(hsel - 1);
+$('#nexth').onclick = () => pick(hsel + 1);
+$('#fewer').onclick = () => setSides(S.sides - 1);
+$('#more').onclick = () => setSides(S.sides + 1);
+$('#mask').onclick = toggleMask;
+
+addEventListener('keydown', e => {
+  if (e.target.closest('select, input, textarea') || e.altKey) return;
+  const key = e.key.toLowerCase(), mod = e.ctrlKey || e.metaKey;
+  const arrows = { arrowleft: [-1, 0], arrowright: [1, 0], arrowup: [0, -1], arrowdown: [0, 1] };
+  if (arrows[key]) { e.preventDefault(); nudge(...arrows[key], e.shiftKey ? 10 : 1); }
+  else if (mod && key === 'z') { e.preventDefault(); doUndo(); }
+  else if (mod) return;
+  else if (key >= '1' && key <= '9') pick(+key - 1);
+  else if (key === 'w') setMode('warp');
+  else if (key === 's') setMode('shape');
+  else if (key === '+' || key === '=') setSides(S.sides + 1);
+  else if (key === '-') setSides(S.sides - 1);
+  else if (key === 'm') toggleMask();
+  else if (key === 'g') toggleGrid();
+});
+
+// --- server ---
+function status(text, cls = '') {
+  $('#status').className = cls;
+  $('#status span').textContent = text;
+}
+
+async function api(path, body) {
+  let r;
+  try {
+    r = await fetch(path, body === undefined ? {} :
+      { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+  } catch { throw new Error('PC server not running'); }
+  const j = await r.json().catch(() => ({}));
+  if (!r.ok) throw new Error(j.error || 'HTTP ' + r.status);
+  return j;
+}
+
+// At most one request in flight and one per 40ms; the server keeps only the newest state anyway.
+let inflight = false, dirty = false, cooldown = false;
+function send() { dirty = true; if (!inflight && !cooldown) flush(); }
+async function flush() {
+  dirty = false; inflight = true; cooldown = true;
+  setTimeout(() => { cooldown = false; if (dirty && !inflight) flush(); }, 40);
+  const round = p => p.map(v => Math.round(v * 10) / 10);
+  try {
+    const r = await api('/apply', { corners: C, shape: S, polygon: S.on ? shapePoly(S).map(round) : null });
+    r.error ? status(r.error, 'bad') : status('Live on projector', 'ok');
+  } catch (e) { status(e.message, 'bad'); }
+  inflight = false;
+  if (dirty && !cooldown) flush();
+}
+
+async function load() {
+  try {
+    const s = await api('/state');
+    W = s.w; H = s.h; C = s.corners; factory = s.factory; grid = s.grid; stream = s.stream;
+    if (s.shape) S = s.shape;
+    hsel = Math.min(hsel, shapeHandles(S).length - 1);
+    setPresets(s.presets);
+    syncGrid();
+    resize();
+    status('Live on projector', 'ok');
+  } catch (e) { status(e.message, 'bad'); }
+}
+
+async function toggleGrid() {
+  const b = $('#grid');
+  b.disabled = true;
+  status(grid ? 'Closing grid…' : 'Opening grid…');
+  try { grid = (await api('/grid', { on: !grid })).grid; status('Live on projector', 'ok'); }
+  catch (e) { status(e.message, 'bad'); }
+  b.disabled = false;
+  syncGrid();
+}
+function syncGrid() {
+  $('#grid').setAttribute('aria-pressed', grid);
+  $('#grid').textContent = grid ? (stream ? 'Show stream' : 'Hide grid') : 'Show grid';
+}
+
+function setPresets(p) {
+  presets = p;
+  const s = $('#preset'), cur = s.value;
+  s.replaceChildren(...Object.keys(p).sort().map(n => new Option(n, n)));
+  if (p[cur]) s.value = cur;
+  $('#load').disabled = $('#del').disabled = !s.options.length;
+}
+
+$('#undo').onclick = doUndo;
+$('#grid').onclick = toggleGrid;
+$('#factory').onclick = () => factory && setWarp(copy(factory));
+$('#full').onclick = () => setWarp([[0, 0], [W, 0], [0, H], [W, H]]);
+$('#load').onclick = () => {
+  const p = presets[$('#preset').value];
+  if (!p) return;
+  const q = Array.isArray(p) ? p : p.corners;  // presets saved before shapes existed are bare corner lists
+  pushUndo();
+  if (p.shape) { S = copyShape(p.shape); hsel = 0; }
+  commitWarp(copy(q)) || (draw(), send());
+};
+$('#save').onclick = async () => {
+  const name = prompt('Preset name', $('#preset').value || '');
+  if (!name || !name.trim()) return;
+  try {
+    setPresets((await api('/presets', { name, corners: C, shape: S })).presets);
+    $('#preset').value = name.trim();
+    status('Preset saved', 'ok');
+  } catch (e) { status(e.message, 'bad'); }
+};
+$('#del').onclick = async () => {
+  const name = $('#preset').value;
+  if (!name || !confirm(`Delete preset "${name}"?`)) return;
+  try { setPresets((await api('/presets', { name, corners: null })).presets); }
+  catch (e) { status(e.message, 'bad'); }
+};
+
+addEventListener('resize', resize);
+// Coming back to the tab (e.g. after using the other device) re-reads what the projector actually has.
+document.addEventListener('visibilitychange', () => { if (!document.hidden && !drag && !inflight) load(); });
+setMode('warp');
+resize();
+load();
+</script>
+</body>
+</html>

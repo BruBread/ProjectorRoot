@@ -1,0 +1,9 @@
+
+on property:init.svc.testgamma=stopped
+    start brightness
+
+service brightness /system/bin/sh /data/brightness.sh
+    user root
+    group root
+    disabled
+    oneshot

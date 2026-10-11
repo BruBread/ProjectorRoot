@@ -1,0 +1,4 @@
+service hdmi_autoswitch /system/bin/sh /data/hdmi_autoswitch.sh
+    class late_start
+    user root
+    group root
