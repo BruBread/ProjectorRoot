@@ -1,6 +1,6 @@
 import socket
 from concurrent.futures import ThreadPoolExecutor
-host="192.168.1.10"
+host="PROJECTOR_IP"
 def probe(p):
     s=socket.socket(); s.settimeout(0.8)
     try:

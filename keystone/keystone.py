@@ -13,7 +13,7 @@ like any mapping tool:
 With --stream (ProjectorControl.bat) it also starts this PC's Sunshine desktop stream in Moonlight,
 and the page's grid button switches the projector between the grid and the stream.
 
-Usage: python keystone.py [--device 192.168.1.10:5555] [--port 8300] [--stream HOST_UUID]
+Usage: python keystone.py [--device PROJECTOR_IP:5555] [--port 8300] [--stream HOST_UUID]
        python keystone.py --selftest
 """
 import argparse
@@ -37,7 +37,7 @@ MOONLIGHT = "com.limelight"
 P2P_LISTEN = "wpa_cli -p /data/vendor/wifi/wpa/sockets -i p2p-dev-wlan0 p2p_ext_listen"  # no args: off
 END = "__keystone_end__"
 
-DEV = "192.168.1.10:5555"
+DEV = "PROJECTOR_IP:5555"
 STREAM = None  # Moonlight's UUID for this PC's Sunshine host, set by --stream
 W, H = 1280, 720  # replaced by `wm size` at startup
 grid_on = False

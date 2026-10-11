@@ -1,0 +1,7 @@
+# Private values (projector IP/MAC, Wi-Fi SSID, Sunshine host UUID) are swapped
+# for placeholders on commit by a local-only "redact" filter in .git/config.
+*.bat filter=redact
+*.sh filter=redact
+*.py filter=redact
+*.md filter=redact
+*.txt filter=redact

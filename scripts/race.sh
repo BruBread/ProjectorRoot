@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 export MSYS_NO_PATHCONV=1
-IP=192.168.1.10:5555
+IP=PROJECTOR_IP:5555
 LOG="$1"
 echo "[*] rebooting to normal boot $(date +%T)" > "$LOG"
 adb reboot >>"$LOG" 2>&1

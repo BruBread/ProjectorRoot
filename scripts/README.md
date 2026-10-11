@@ -2,7 +2,7 @@
 
 ## Persistent wifi adb root (normal boot)
 `/data/local.prop` (plaintext, non-reverting) +  one-time boot-window race (`adb_enable_race.sh`)
-flips `Settings.Global.adb_enabled=1`; then `adb connect 192.168.1.10:5555` + `adb root`.
+flips `Settings.Global.adb_enabled=1`; then `adb connect PROJECTOR_IP:5555` + `adb root`.
 
 ## Auto HDMI-in switch
 - `hdmi_autoswitch.sh` -> `/data/hdmi_autoswitch.sh` : polls `/sys/kernel/debug/2-0050/hdmirx/status`

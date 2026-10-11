@@ -2,7 +2,7 @@
 # Snapshot the projector's performance state to a timestamped file, for
 # before/after comparison. Usage: ./baseline.sh [adb-serial]  (default: wifi)
 export MSYS_NO_PATHCONV=1
-S="${1:-192.168.1.10:5555}"
+S="${1:-PROJECTOR_IP:5555}"
 OUT="baseline_$(date +%Y%m%d_%H%M%S).txt"
 adb connect "$S" >/dev/null 2>&1
 sh() { echo "### $* ###"; adb -s "$S" shell "$@" 2>&1; echo; }

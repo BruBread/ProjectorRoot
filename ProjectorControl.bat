@@ -7,11 +7,11 @@ rem On the page, the grid button switches the projector between the alignment gr
 rem Usage: ProjectorControl.bat         start streaming
 rem        ProjectorControl.bat stop    end a stream left running and stop Sunshine
 
-set SSID=secretwifi
-set PROJ_IP=192.168.1.10
-set PROJ_MAC=cc-f3-05-8f-10-d2
+set SSID=YOUR_WIFI_SSID
+set PROJ_IP=PROJECTOR_IP
+set PROJ_MAC=PROJECTOR_MAC
 set SUBNET=192.168.1
-set HOST_UUID=FBB9EECB-D643-7C0B-9004-EF550DB36751
+set HOST_UUID=SUNSHINE_HOST_UUID
 
 netsh wlan show interfaces | findstr /r /c:" SSID *: %SSID%$" >nul || (echo Not connected to %SSID%. & goto :fail)
 

@@ -1,5 +1,5 @@
 import socket
-host="192.168.1.10"
+host="PROJECTOR_IP"
 def req(p, path="/"):
     try:
         s=socket.socket(); s.settimeout(2.5); s.connect((host,p))

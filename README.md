@@ -16,7 +16,7 @@ The device is a Magcubic/HY300-branded projector that is actually a **Rockchip R
 | Real silicon | Rockchip RK3326 (`rk3326_sgo`), 4× Cortex-A35, Android 12 Go |
 | Firmware | `userdebug/release-keys`, reskinned by ODM "TXCZ" (`com.shzhtxcz.txbox` posing as `com.android.tv.settings`) |
 | Goal | Persistent ADB + root in normal boot (stock firmware exposes neither) |
-| Outcome | **Achieved** — `adb connect 192.168.1.10:5555` → `adb root` → `uid=0 (u:r:su:s0)`, persists across reboots |
+| Outcome | **Achieved** — `adb connect PROJECTOR_IP:5555` → `adb root` → `uid=0 (u:r:su:s0)`, persists across reboots |
 | Still unsolved | `/system` edits silently revert on every boot — traced to a bespoke mechanism in U-Boot or earlier |
 | Tools | Stock recovery root, liblp loop-mounts, jadx, hand-written AXML/DEX parsers, capstone, Ghidra 12.1.3 |
 | Attempts logged | 19+, each with its reasoning — see [PROGRESS_LOG.md](PROGRESS_LOG.md) |
@@ -68,7 +68,7 @@ The breakthrough was realizing there are two different locks, and they fail diff
 
 The key insight: the property override alone only buys the one-second window; the thing that makes it *permanent* is flipping the real `adb_enabled` setting during that window, through the booted settings provider that recovery can't reach.
 
-**Verified:** after `adb reboot`, the device comes back on its own at `192.168.1.10:5555`, `adb_enabled=1`, port 5555 listening, `adb root` → `uid=0`. No cable, no re-running the race. The race is a one-time cost.
+**Verified:** after `adb reboot`, the device comes back on its own at `PROJECTOR_IP:5555`, `adb_enabled=1`, port 5555 listening, `adb root` → `uid=0`. No cable, no re-running the race. The race is a one-time cost.
 
 ## The mystery I didn't solve: `/system` reverts on every boot
 

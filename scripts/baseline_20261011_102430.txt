@@ -1,4 +1,4 @@
-=== baseline Sun Oct 11 10:24:31 MPST 2026 | 192.168.1.10:5555 ===
+=== baseline Sun Oct 11 10:24:31 MPST 2026 | PROJECTOR_IP:5555 ===
 ### getprop ro.build.fingerprint ###
 Google/rk3326_sgo/rk3326_sgo:12/SQ3A.220705.003.A1/eng.20260114.185329:userdebug/release-keys
 

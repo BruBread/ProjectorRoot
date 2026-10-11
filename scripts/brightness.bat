@@ -9,8 +9,8 @@ rem very high levels just look washed out.
 rem First run appends brightness.rc to /vendor/etc/init/hw/init.rk3326.rc (backup: /cust/init.rk3326.rc.pre-brightness)
 rem so /data/brightness.sh runs after the factory testgamma service at every boot.
 
-set PROJ_IP=192.168.1.10
-set PROJ_MAC=cc-f3-05-8f-10-d2
+set PROJ_IP=PROJECTOR_IP
+set PROJ_MAC=PROJECTOR_MAC
 set SUBNET=192.168.1
 
 adb connect %PROJ_IP%:5555 | find "connected to" >nul || call :find_projector
